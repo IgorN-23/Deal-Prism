@@ -1,0 +1,2550 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Deal Prism — Executive methodology demo</title>
+<style>
+/* =========================================================
+   Deal Prism — standalone, offline, system fonts only.
+   No CDN, no Google Fonts.
+
+   v8A-18 002B-5 closing frame (Opening-to-Operating Bridge):
+   - Adds ONE deliberate final decision frame after Screen 10's final
+     step. It is NOT a numbered demo screen: no stage-title, no
+     STEP/SCREEN counter — a small "Deal Prism · Final Recommendation"
+     label instead. Left = premium dark brand panel echoing the opening
+     page (same poster gradient, gold eyebrow, serif wordmark, slogan,
+     accented mechanism line); right = light executive decision panel in
+     the Screens 1–10 system (conclusion + final ask); a slim governance
+     / assurance strip is integrated below. The existing bottom-rail
+     style + icon-only controls (Restart · Appendix · Previous · Next)
+     are preserved; the Appendix icon opens Appendix G.
+   - Routing only: SCREEN_COUNT stays 10 (Screens 1–10 still read "/10");
+     a new CLOSING_SCREEN=11 is reached by a normal Next from Screen 10,
+     Previous returns to Screen 10's final step, Restart/keyboard intact.
+   - No changes to Screens 0–10 wording, Appendices A–G content, Screen 7
+     taxonomy/reveal logic, source-proof or no-publish logic. No new
+     facts/claims, no PDF links, no horizontal scroll.
+
+   v8A-17 002B-4 rehearsal-readiness QA / stabilization build:
+   - Narrow visual-polish + rehearsal-readiness QA pass over the
+     approved v8A-16 baseline. No redesign, no wording rewrite, no new
+     screens/appendices, no PDF creation/links/previews.
+   - Full screen-by-screen + appendix QA performed at constrained
+     height: no horizontal scroll, no bottom-rail overlap (the existing
+     conditional vertical-scroll fallback engages instead), appendix
+     tabs A–G wrap cleanly, routing preserved, keyboard + local/offline
+     readiness preserved.
+   - Only code change: `overscroll-behavior: contain` added to the two
+     scroll containers (.screen main body + .appendix-body) so that when
+     the height fallback engages during rehearsal, scrolling cannot
+     rubber-band / scroll-chain the whole page. Zero effect on the
+     100%-fit executive composition. No content, wording, structure,
+     taxonomy, reveal-logic, or risk-control changes.
+
+   v8A-9 002A-7A conditional vertical-scroll fallback + Screen-7
+   Step-4 readability rebalance (narrow, fit-first, no redesign):
+   - Screens 1–10 main content area (.screen) is now a scroll-safe
+     container: overflow-y:auto + overflow-x:hidden + scrollbar-gutter
+     stable, with larger bottom padding. At 100% on typical displays it
+     still fits with no scrollbar; when zoom / display-scale / a short
+     viewport exceeds the safe height between the fixed topbar and the
+     fixed bottom rail, the content area scrolls vertically instead of
+     hiding content behind the rail. No horizontal scroll is introduced.
+     Topbar and bottom rail stay fixed and never overlap content.
+   - Screen 0 is untouched (its full-bleed renderer bypasses .screen).
+   - Screen 7 Step 4 end-state modestly rebalanced for readability:
+     more top padding (clears the "End state" badge), slightly larger
+     title / sub / checklist body, more even inner spacing. Composition,
+     two-column Week-1 layout, output-block decision and ALL wording
+     unchanged. The scroll fallback guarantees it can never clip.
+   - No 002A-7B wording updates. No "Angle" on Screen 5. No Appendix F.
+     No FD-014 fact changes. No risk-control changes. No new assets.
+     No old fixed 1440×810 stage scaling restored.
+
+   v8A-8 002A-7A Screen-7 composition + fit correction (narrow):
+   - Compact "Additional outputs" one-line strip removed from Screen 7.
+   - Screen 7 secondary outputs restored as visible content-unit blocks
+     (Newsletter, Website Snippet, Video Concept, Carousel Text) plus
+     Calendar Placement. All 10 outputs now appear as a 5×2 tile grid.
+   - Active / secondary visual hierarchy implemented in the Screen 1
+     spirit: live tiles use a stronger card (navy edge, white fill,
+     LIVE eyebrow); secondary tiles use a quieter card (sand-tinted
+     paper fill, thin rule, "NOT OPENED LIVE" eyebrow) — readable and
+     credible, never faded, never disabled, never missing-PDF.
+   - Expanded live-output cards balanced: every .tile-expanded now
+     fills its grid cell (height:100%), e-text rows use the same
+     line-clamp baseline, and micro stays bottom-aligned so card
+     bottoms align across the four-up row.
+   - Review → Approve → Schedule end-state padding, gaps, and heading
+     spacing tightened for the final Screen 7 reveal at 1366×768.
+   - Week 1 sequence converted to a compact two-column structure
+     inside the end-state. Sequence meaning preserved exactly:
+     col 1 MON/TUE/WED, col 2 THU/LATER. No new calendar items.
+   - No 002A-7B wording updates applied. No "Angle" added to Screen 5.
+     No Appendix F added. No FD-014 fact changes. No risk-control
+     changes. No new output content. No PDF links.
+
+   v8A-7 002A-7A corrective patch (narrow, fit-only):
+   - Topbar separator between brand and stage title replaced with a
+     subtle thin vertical rule (no bullet/dot).
+   - Bottom rail governance text fixed to a single short string:
+     "Internal demo · Human review · No automated publishing · Marketing-owned".
+     Per-screen extra cues removed from the rail (still appear on
+     dedicated governance screens via existing content).
+   - Bottom rail composed left-to-right as: compact governance rail,
+     two-line STEP/SCREEN counter (contained), icon-only controls in
+     order Restart · Appendix · Previous · Next. No overlap.
+   - Bottom rail height kept stable; rail uses flex with min-width:0
+     on the governance label so it shortens cleanly under tight widths.
+   - Content-safe-area: .screen min-height 0 + flex layout ensures the
+     screen body never sits behind the bottom rail.
+   - Vertical-fit pass for Screens 6, 7, 10: card paddings, grid gaps,
+     min-heights trimmed; Screen 7 final reveal prioritised.
+   - Screen 7 secondary outputs collapsed from a faded card row to a
+     single compact one-line strip:
+     "Additional outputs: Newsletter · Website snippet · Video concept · Carousel".
+   - No content changes (FD-014 facts, brief, risk ribbon, prohibited
+     claims, output wording, end-state, pilot content, appendices).
+   - No 002A-7B wording updates applied.
+
+   v8A-6 chrome / navigation / vertical-fit correction (002A-7A):
+   - v8A-5 used as baseline; Screen 0 preserved unchanged.
+   - Body-level context line removed from Screens 1–10. The current
+     stage title now lives in the topbar beside Deal Prism
+     ("Deal Prism · Brief to Outputs"). Method line retained on the
+     right and hidden first on narrow viewports.
+   - Page-level appendix buttons ("Appendix: Source proof →" etc.)
+     removed from screen bodies. The bottom Appendix icon now opens
+     a context-relevant appendix target per screen.
+   - Bottom rail recomposed. Compact two-line STEP / SCREEN counter
+     replaces the old one-line "01 / 10" indicator. STEP updates on
+     reveal step; SCREEN updates on screen change.
+   - Screen 7 secondary tiles restyled as quiet/collapsed instead
+     of looking disabled (lighter neutral background, thinner border,
+     smaller label; no opacity dim).
+   - Screen 1 paragraph width tuned to avoid orphan-line wrapping
+     of the last word; wording unchanged.
+   - Vertical density retuned via clamp()-driven paddings, reduced
+     card min-heights, and grid gaps so Screens 1–10 fit at 100%
+     browser zoom on 1366×768 → 1920×1080 viewports.
+   - Screen 0 visual composition is unchanged.
+
+   (Internal file naming retains the W-WS workflow tag; no
+    internal terminology appears in audience-facing UI.)
+   ========================================================= */
+
+:root {
+  --bg: #F1ECE2;
+  --bg-deep: #E6DFD0;
+  --paper: #FBF8F1;
+  --card: #FFFFFF;
+  --card-muted: #F7F3EA;
+  --rule: #DDD5C2;
+  --rule-soft: #E8E1D1;
+
+  --ink: #1A2230;
+  --ink-2: #2D3949;
+  --ink-mute: #5B6779;
+  --ink-faint: #8A93A1;
+
+  --navy: #2D405E;
+  --navy-2: #1F2E47;
+  --navy-soft: #E2E7EE;
+  --sand: #A58851;
+  --sand-2: #8E7239;
+  --sand-soft: #ECE1C7;
+
+  --amber: #A5701D;
+  --amber-bg: #F7E8C8;
+  --amber-line: #E4C68A;
+
+  --red: #8E3030;
+  --red-bg: #F2DCD7;
+  --red-line: #D9B0AA;
+
+  --shadow-sm: 0 1px 0 rgba(40,40,40,.04), 0 1px 2px rgba(40,40,40,.04);
+  --shadow-md: 0 1px 0 rgba(40,40,40,.04), 0 8px 24px -12px rgba(40,40,40,.18);
+
+  --serif: ui-serif, "Iowan Old Style", "Charter", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --sans: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  --stage-w: 1440px;
+  --stage-h: 810px;
+  /* v8A-4: responsive gutter for Screens 1–10. Hugs the viewport on
+     small laptops (~24px) and breathes on wide desktops (~clamp upper
+     end). Replaces the old fixed 56px gutter that was sized for the
+     1440px centered stage. */
+  --gutter: clamp(24px, 4.2vw, 72px);
+  /* v8A-4: max content width keeps the live area readable on ultra-wide
+     monitors without reintroducing the visible side gutters from the
+     old centered fixed-stage layout. Approximately 88–94% of typical
+     desktop widths use it, then it caps near 16:9 logic territory. */
+  --content-max: 1760px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 14.5px; line-height: 1.45; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+html, body { height: 100%; }
+button { font-family: inherit; }
+
+/* ---------- Stage (v8A-4: full-viewport for Screens 1–10) ----------
+   The old centered 1440×810 box with transform-scale produced visible
+   empty left/right zones inside the browser viewport. For Screens 1–10
+   we drop the centered box entirely: the stage fills 100vw × 100dvh
+   with no transform, and lets the topbar / screen body / bottombar lay
+   out across the full viewport width. Screen 0 keeps its full-bleed
+   override via `body[data-fullbleed="1"]`. */
+.viewport { width: 100vw; height: 100vh; height: 100dvh; min-height: 100vh; overflow: hidden; background: var(--bg); display: block; }
+.stage { width: 100vw; height: 100vh; height: 100dvh; min-height: 100vh; max-width: none; max-height: none; background: var(--bg); position: relative; transform: none; box-shadow: none; overflow: hidden; display: flex; flex-direction: column; }
+
+/* Screen 0 — break out of the 16:9 framed stage and fill the viewport.
+   These overrides are toggled by JS via `body[data-fullbleed="1"]`. */
+body[data-fullbleed="1"] { background: #0A0D13; }
+body[data-fullbleed="1"] .viewport { background: #0A0D13; }
+body[data-fullbleed="1"] #stage {
+  width: 100vw !important; height: 100vh !important;
+  transform: none !important; box-shadow: none !important;
+  border-radius: 0 !important; background: #0A0D13 !important;
+  overflow: hidden;
+}
+
+/* ---------- Topbar (v8A-5) ----------
+   Brand + method line only. No governance/precaution labels in the top
+   area — those have moved to the bottom rail. Height unchanged. */
+.topbar { height: 44px; flex: 0 0 auto; border-bottom: 1px solid var(--rule); display: flex; align-items: center; padding: 0 var(--gutter); gap: 14px; background: var(--paper); }
+.brand { font-family: var(--serif); font-weight: 500; font-size: 17px; letter-spacing: -.01em; color: var(--ink); white-space: nowrap; flex: 0 0 auto; }
+.brand .mark { display: inline-block; width: 7px; height: 7px; background: var(--navy); margin-right: 10px; transform: translateY(-1px); border-radius: 1px; }
+/* v8A-7: replaced the prior bullet/dot brand-sep with a thin vertical
+   rule between "Deal Prism" and the current stage title. */
+.brand-sep { display: inline-block; width: 1px; height: 18px; background: var(--rule); margin: 0 12px 0 6px; flex: 0 0 auto; border-radius: 0; align-self: center; }
+.stage-title { font-family: var(--serif); font-weight: 400; font-size: 16px; color: var(--ink-2); letter-spacing: -.005em; white-space: nowrap; flex: 0 0 auto; }
+.divider { width: 1px; height: 18px; background: var(--rule); flex: 0 0 auto; }
+.topbar .spacer { flex: 1; min-width: 12px; }
+.method-line { font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--ink-mute); letter-spacing: -.005em; white-space: nowrap; flex: 0 1 auto; font-weight: 400; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+@media (max-width: 1180px) { .method-line { display: none; } }
+
+/* Governance chip-strip — now lives in the bottom rail. Compact and
+   restrained; quiet confidence rather than a warning banner. */
+/* v8A-7: governance rail simplified — one fixed short string, no per-screen
+   variants. Single ellipsing line; the rail uses flex:1 1 auto + min-width:0
+   so it gives way before the counter or icon cluster ever clip. */
+.gov-chips { display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-mute); font-weight: 500; white-space: nowrap; flex: 1 1 auto; min-width: 0; overflow: hidden; }
+.gov-chips .gc-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--sand); flex: 0 0 5px; box-shadow: 0 0 0 3px rgba(165,136,81,.12); }
+.gov-chips .gc-text { color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.gov-chips .gc-text .gc-sep { color: var(--ink-faint); opacity: .55; margin: 0 4px; }
+@media (max-width: 1440px) { .gov-chips { font-size: 9px; letter-spacing: .12em; } }
+
+/* ---------- Bottombar (v8A-6) ----------
+   Left: governance/status rail (quiet confidence).
+   Right: compact two-line STEP / SCREEN counter + icon-only control
+   cluster — Restart · Appendix · Previous · Next. */
+/* v8A-7: bottom rail stays a fixed 52px row, with min-width:0 on the
+   governance area so it shortens cleanly without pushing the counter
+   or icon cluster off-screen. */
+.bottombar { height: 52px; flex: 0 0 auto; border-top: 1px solid var(--rule); background: var(--paper); display: flex; align-items: center; padding: 0 var(--gutter); gap: 16px; }
+.bottombar .controls { display: flex; align-items: center; gap: 4px; flex: 0 0 auto; }
+.bottombar .controls-sep { width: 1px; height: 20px; background: var(--rule); margin: 0 6px; flex: 0 0 auto; }
+
+.btn { font-family: var(--sans); font-size: 13px; font-weight: 500; padding: 8px 14px; border-radius: 4px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink-2); cursor: pointer; letter-spacing: .01em; display: inline-flex; align-items: center; gap: 8px; transition: background .15s, border-color .15s, color .15s; white-space: nowrap; flex: 0 0 auto; }
+.btn:hover:not(:disabled) { background: var(--card-muted); border-color: var(--ink-faint); }
+.btn:disabled { opacity: .35; cursor: not-allowed; }
+.btn.primary { background: var(--navy); border-color: var(--navy); color: #fff; }
+.btn.primary:hover:not(:disabled) { background: var(--navy-2); border-color: var(--navy-2); }
+.btn.ghost { border-color: transparent; background: transparent; color: var(--ink-mute); }
+.btn.ghost:hover { color: var(--ink); background: var(--card-muted); }
+.btn svg { display: block; }
+
+/* Icon-only button — comfortable hit target, no visible label. */
+.icon-btn { width: 34px; height: 34px; padding: 0; border-radius: 4px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink-2); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: background .15s, border-color .15s, color .15s, transform .1s; flex: 0 0 auto; }
+.icon-btn:hover:not(:disabled) { background: var(--card-muted); border-color: var(--ink-faint); color: var(--ink); }
+.icon-btn:active:not(:disabled) { transform: translateY(1px); }
+.icon-btn:disabled { opacity: .3; cursor: not-allowed; }
+.icon-btn.ghost { border-color: transparent; background: transparent; color: var(--ink-mute); }
+.icon-btn.ghost:hover:not(:disabled) { background: var(--card-muted); color: var(--ink); }
+.icon-btn.primary { background: var(--navy); border-color: var(--navy); color: #fff; }
+.icon-btn.primary:hover:not(:disabled) { background: var(--navy-2); border-color: var(--navy-2); color: #fff; }
+.icon-btn svg { display: block; }
+
+/* Compact two-line STEP / SCREEN counter.
+   v8A-7: narrower padding and tighter column gap to free width for the
+   governance rail and icon cluster on smaller laptops. */
+.counter { font-family: var(--mono); font-size: 9.5px; line-height: 1.3; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; flex: 0 0 auto; display: grid; grid-template-columns: auto auto; column-gap: 8px; row-gap: 1px; align-items: baseline; color: var(--ink-mute); border-left: 1px solid var(--rule-soft); border-right: 1px solid var(--rule-soft); padding: 0 12px; }
+.counter .ct-label { color: var(--ink-mute); letter-spacing: .14em; font-weight: 600; opacity: .85; }
+.counter .ct-value { color: var(--ink); font-weight: 600; letter-spacing: .04em; font-variant-numeric: tabular-nums; text-align: right; }
+
+/* ---------- Status labels ---------- */
+.statlabel { display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; font-family: var(--mono); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-mute); background: var(--card); border: 1px solid var(--rule); border-radius: 3px; font-weight: 500; white-space: nowrap; }
+.statlabel .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--ink-faint); }
+.statlabel.amber { background: var(--amber-bg); border-color: var(--amber-line); color: var(--amber); }
+.statlabel.amber .dot { background: var(--amber); }
+.statlabel.navy { background: var(--navy-soft); border-color: #C8D2DF; color: var(--navy-2); }
+.statlabel.navy .dot { background: var(--navy); }
+.statlabel.sand { background: var(--sand-soft); border-color: #D9C8A0; color: var(--sand-2); }
+.statlabel.sand .dot { background: var(--sand); }
+.statlabel.red { background: var(--red-bg); border-color: var(--red-line); color: var(--red); }
+.statlabel.red .dot { background: var(--red); }
+
+/* ---------- Screen body (v8A-7 vertical-fit pass) ----------
+   The screen sits in a flex column between the topbar and the bottom
+   rail (both flex:0 0 auto) so content cannot fall behind the rail.
+   Vertical paddings tightened further so dense screens (6, 7, 10) fit
+   at 100% browser zoom on a 1366×768 viewport.
+
+   v8A-9 002A-7A conditional vertical-scroll fallback (Screens 1–10):
+   The main content area is now a scroll container — overflow-y:auto +
+   overflow-x:hidden. At 100% on typical displays content still fits and
+   no scrollbar appears. When browser zoom / display scale / a short
+   viewport pushes content past the safe height between the topbar and
+   the fixed bottom rail, the main area scrolls vertically instead of
+   hiding content behind the rail. The topbar and bottom rail remain
+   fixed (flex:0 0 auto siblings of this area), so neither overlaps the
+   content and the controls / counter / governance rail stay visible.
+   A larger bottom padding guarantees the last line clears the rail when
+   scrolled to the end. Horizontal scrolling is never introduced.
+   scrollbar-gutter:stable keeps the layout from shifting when the
+   scrollbar appears. This is a fit-first fallback, NOT a responsive
+   redesign: the executive composition at 100% is unchanged. */
+.screen { flex: 1 1 auto; display: flex; flex-direction: column; padding: clamp(8px, 1.3vh, 16px) max(var(--gutter), calc((100vw - var(--content-max)) / 2)) clamp(12px, 1.8vh, 20px); overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; scrollbar-gutter: stable; position: relative; min-height: 0; }
+/* Subtle, restrained scrollbar for the main content area — only visible
+   when the fallback engages. */
+.screen::-webkit-scrollbar { width: 9px; }
+.screen::-webkit-scrollbar-track { background: transparent; }
+.screen::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 5px; border: 2px solid var(--bg); }
+.screen::-webkit-scrollbar-thumb:hover { background: var(--ink-faint); }
+.screen { scrollbar-width: thin; scrollbar-color: var(--rule) transparent; }
+.screen-head { display: flex; flex-direction: column; gap: 3px; margin-bottom: clamp(5px, .9vh, 8px); flex: 0 0 auto; }
+
+/* Consolidated context line (audience-facing) — "Screen 01 · Step 1/2 · Premise".
+   Replaces the old separate topbar Screen + Step meta blocks. */
+.context-line { font-family: var(--mono); font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--sand-2); font-weight: 600; display: inline-flex; align-items: baseline; gap: 10px; }
+.context-line .ctx-sep { color: var(--ink-faint); opacity: .55; font-weight: 500; }
+.context-line .ctx-screen { color: var(--sand-2); }
+.context-line .ctx-step { color: var(--ink-mute); font-weight: 500; }
+.context-line .ctx-title { color: var(--ink-2); font-weight: 600; letter-spacing: .14em; }
+
+.eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--sand-2); font-weight: 600; }
+.headline { font-family: var(--serif); font-weight: 400; font-size: clamp(28px, 3.2vw, 36px); line-height: 1.06; letter-spacing: -.018em; color: var(--ink); max-width: 1100px; text-wrap: balance; margin: 0; }
+.headline em { font-style: italic; color: var(--sand-2); }
+
+/* v8A-3 readability pass: subheadline & body text slightly larger and darker;
+   tighter letter-spacing where it hurt legibility on the projection screen.
+   v8A-5: short/body lines use clamp() for vertical-fit on shorter laptops.
+   v8A-6: text-wrap: pretty on .body-text to avoid one-word orphan lines
+   (Screen 1 paragraph in particular). */
+.short { font-size: clamp(14.5px, 1.18vw, 16.5px); color: #3D485B; max-width: 820px; margin: 0; text-wrap: pretty; line-height: 1.5; letter-spacing: .002em; }
+.body-text { font-size: clamp(13px, 1.05vw, 14.5px); color: var(--ink-2); max-width: 760px; line-height: 1.55; margin: 6px 0 0; text-wrap: pretty; }
+.section-h { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; margin-bottom: 8px; }
+
+.foot-note { margin-top: auto; padding-top: 6px; font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); display: flex; justify-content: flex-end; align-items: center; gap: 12px; }
+.foot-note .left { display: none; }      /* presenter instructions removed from audience UI */
+.foot-note .right { flex: 0 0 auto; }
+
+/* ---------- Reveal ---------- */
+[data-reveal-step] { opacity: 0; transform: translateY(8px); transition: opacity .5s ease, transform .5s ease; transition-delay: var(--rd, 0ms); }
+[data-reveal-step].in { opacity: 1; transform: translateY(0); }
+[data-hide-step].hidden { display: none; }
+
+/* ---------- Grids ---------- */
+.grid { display: grid; gap: 12px; }
+.grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+.grid.cols-5 { grid-template-columns: repeat(5, 1fr); }
+
+/* ---------- Cards ---------- */
+.card { background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 16px 18px; }
+
+/* DealCard (Screen 1) — v8A-3: removed visible FD/C id row; readability bump.
+   v8A-5: min-height removed (was 210px) and padding trimmed so the five-card
+   row fits without the bottom edges being clipped by the bottom rail. */
+.deal-card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 13px 15px; position: relative; transition: box-shadow .35s ease, border-color .35s ease, background .35s ease; }
+.deal-card .deal-id { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; color: var(--sand-2); text-transform: uppercase; font-weight: 600; margin-bottom: 6px; }
+.deal-card .deal-label { font-family: var(--serif); font-size: 17.5px; font-weight: 500; color: var(--ink); line-height: 1.22; margin: 0 0 8px; }
+.deal-card .deal-amount { font-size: 13px; color: var(--ink-2); margin-bottom: 9px; line-height: 1.45; }
+.deal-card .proof-row, .deal-card .risk-row { font-size: 12px; color: #4A5566; margin-bottom: 5px; line-height: 1.5; }
+.deal-card .proof-row b, .deal-card .risk-row b { display: inline-block; font-family: var(--mono); font-size: 9px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); margin-right: 6px; }
+.deal-card .risk-row b { color: var(--red); }
+.deal-card.highlight { border-color: var(--sand); box-shadow: 0 0 0 1px var(--sand), 0 20px 40px -20px rgba(165,136,81,.4); background: linear-gradient(180deg, var(--card) 0%, #FCF8EE 100%); }
+.deal-card.highlight::after { content: "Working example"; position: absolute; top: -10px; right: 12px; font-family: var(--mono); font-size: 9px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #fff; background: var(--sand-2); padding: 4px 8px; border-radius: 2px; }
+
+/* Pattern card (Screen 2) — v8A-5: min-height reduced for vertical fit. */
+.pattern-card { background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; min-height: 140px; display: flex; flex-direction: column; }
+.pattern-card .pnum { font-family: var(--mono); font-size: 10px; letter-spacing: .14em; color: var(--sand-2); text-transform: uppercase; margin-bottom: 12px; font-weight: 600; }
+.pattern-card .ptitle { font-family: var(--serif); font-size: 18.5px; font-weight: 500; color: var(--ink); line-height: 1.18; margin: 0 0 6px; }
+.pattern-card .ptext { font-size: 13.5px; color: #4A5566; line-height: 1.55; }
+
+/* Stage cell (Screen 3) — v8A-5: padding & min-height trimmed. */
+.stage-flow { display: grid; grid-template-columns: 1fr 50px 1fr 50px 1fr; gap: 0; align-items: stretch; }
+.stage-cell { background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 18px; min-height: 170px; display: flex; flex-direction: column; }
+.stage-cell .num { font-family: var(--mono); font-size: 10px; letter-spacing: .16em; color: var(--sand-2); text-transform: uppercase; margin-bottom: 10px; font-weight: 600; }
+.stage-cell .stitle { font-family: var(--serif); font-size: 22px; font-weight: 500; color: var(--ink); line-height: 1.16; margin-bottom: 10px; }
+.stage-cell .stext { font-size: 14px; color: #4A5566; line-height: 1.6; }
+.connector { display: flex; align-items: center; justify-content: center; position: relative; }
+.connector .line { width: 100%; height: 1px; background: var(--rule); position: relative; overflow: hidden; }
+.connector .line::after { content: ""; position: absolute; left: -100%; top: 0; height: 1px; width: 100%; background: var(--navy); transition: left .6s ease; }
+.connector.in .line::after { left: 0; }
+.connector .arrow { position: absolute; right: 0; width: 0; height: 0; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-left: 6px solid var(--navy); opacity: 0; transition: opacity .25s ease .5s; }
+.connector.in .arrow { opacity: 1; }
+
+/* Leakage (Screen 4) — v8A-5: gap & channel padding/min-height trimmed.
+   v8A-9: min-height min-content (was 0) so the fill area keeps its
+   content height under constrained viewports → the main area scrolls
+   instead of the cards being clipped. Still flex:1 → fills at 100%. */
+.leakage { display: grid; grid-template-columns: 300px 1fr; gap: 22px; flex: 1; min-height: min-content; }
+.leakage .channels { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-content: start; }
+.channel-card { background: var(--card-muted); border: 1px dashed var(--rule); border-radius: 6px; padding: 12px 14px; min-height: 72px; transition: all .5s ease; opacity: .55; filter: grayscale(.5); }
+.channel-card.lit { background: var(--card); border-style: solid; border-color: var(--sand); opacity: 1; filter: none; box-shadow: 0 4px 16px -8px rgba(165,136,81,.4); }
+.channel-card .clabel { font-family: var(--mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 6px; font-weight: 600; }
+.channel-card.lit .clabel { color: var(--sand-2); }
+.channel-card .ctitle { font-family: var(--serif); font-size: 15px; font-weight: 500; margin: 0 0 4px; }
+.channel-card .ctext { font-size: 12.5px; color: #4A5566; line-height: 1.55; }
+
+/* Source card — v8A-7: padding trimmed for Screen 6 vertical fit. */
+.source-card { background: var(--card); border: 1px solid var(--navy); border-radius: 6px; padding: 14px 16px 12px; position: relative; box-shadow: 0 8px 30px -16px rgba(45,64,94,.3); }
+.source-card::before { content: "Public Source Page"; position: absolute; top: -10px; left: 16px; font-family: var(--mono); font-size: 9px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #fff; background: var(--navy); padding: 4px 8px; border-radius: 2px; }
+.source-card .src-id { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; color: var(--navy); font-weight: 600; text-transform: uppercase; margin-bottom: 6px; }
+.source-card .src-title { font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--ink); line-height: 1.16; margin: 0 0 10px; letter-spacing: -.01em; }
+.source-card .src-facts { font-size: 13.5px; color: var(--ink-2); line-height: 1.65; margin: 0; padding: 0; list-style: none; }
+.source-card .src-facts li { position: relative; padding-left: 14px; }
+.source-card .src-facts li::before { content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 1px; background: var(--navy); }
+.micro { font-family: var(--mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); font-weight: 500; margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--rule-soft); }
+
+/* Brief / risk ribbon — v8A-7: padding & inter-section gaps trimmed. */
+.brief-card { background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 16px; }
+.brief-card .b-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+.brief-card .b-title { font-family: var(--serif); font-size: 17px; font-weight: 500; margin: 0; white-space: nowrap; }
+.fd-tag { display: inline-block; font-family: var(--mono); font-size: 10px; letter-spacing: .14em; color: var(--navy); background: var(--navy-soft); padding: 2px 6px; border-radius: 3px; font-weight: 600; text-transform: uppercase; }
+.b-section { margin-top: 4px; padding-top: 4px; border-top: 1px solid var(--rule-soft); }
+.b-section:first-of-type { border-top: 0; padding-top: 0; margin-top: 0; }
+.b-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.b-label.warn { color: var(--amber); }
+.b-list { font-size: 12px; color: var(--ink-2); line-height: 1.34; margin: 0; padding-left: 14px; }
+.b-list li::marker { color: var(--ink-faint); }
+.b-list.cols { columns: 2; column-gap: 16px; padding-left: 16px; }
+.b-list.cols li { break-inside: avoid; }
+/* v8A-11: compact lower section (Main framing + Editorial angle) on Screen 6 */
+.b-lower { margin-top: 4px; padding-top: 4px; }
+.b-lrow { margin-top: 4px; }
+.b-lrow:first-child { margin-top: 0; }
+.b-lrow .b-label { margin-bottom: 2px; }
+.b-ltext { font-size: 12px; color: var(--ink-2); margin: 0; line-height: 1.4; }
+
+.risk-ribbon { background: var(--red-bg); border: 1px solid var(--red-line); border-radius: 6px; padding: 14px 16px 10px; position: relative; }
+.risk-ribbon::before { content: "Risk Boundaries"; position: absolute; top: -10px; left: 16px; font-family: var(--mono); font-size: 9px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #fff; background: var(--red); padding: 4px 8px; border-radius: 2px; }
+.risk-ribbon .r-title { font-family: var(--serif); font-size: 17px; font-weight: 500; color: var(--red); margin: 0 0 8px; }
+.risk-ribbon .r-text { font-size: 12.5px; color: #6E2424; line-height: 1.55; }
+
+/* Output tiles — v8A-8:
+   All ten outputs are visible blocks again. The v8A-7 "Additional
+   outputs" one-line strip is removed (.add-outputs kept hidden for
+   back-compat). The grid is a 5×2 tile-grid: row 1 = five live
+   tiles (Company LinkedIn, Loan-Officer-Style Post, Staff Comments,
+   Broker Summary, Approval Checklist), row 2 = five secondary
+   tiles (Newsletter, Website Snippet, Video Concept, Carousel
+   Text, Calendar Placement). Hierarchy follows Screen 1: active
+   blocks read stronger; secondary blocks are quieter but remain
+   readable and credible — never faded, never disabled-looking,
+   never a missing-PDF placeholder. */
+.tile-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 7px; }
+.tile { background: var(--card); border: 1px solid var(--rule); border-radius: 5px; padding: 6px 10px 7px; min-height: 0; display: flex; flex-direction: column; position: relative; }
+
+/* Live tiles: stronger card — white fill, navy edge. */
+.tile.live { border-color: var(--navy); box-shadow: 0 1px 0 rgba(45,64,94,.04), 0 4px 12px -10px rgba(45,64,94,.3); }
+.tile.live .t-num { color: var(--navy); }
+
+/* Secondary tiles: quiet card — sand-tinted paper fill, soft rule.
+   Visible, readable, credible — NOT a disabled state. No opacity dim. */
+.tile.secondary { background: var(--card-muted); border-color: var(--rule-soft); }
+.tile.secondary .t-num { color: var(--ink-faint); }
+.tile.secondary .t-title { color: var(--ink-2); }
+.tile.secondary .t-sub { color: var(--ink-mute); }
+
+.tile .t-num { font-family: var(--mono); font-size: 9px; letter-spacing: .14em; color: var(--ink-faint); text-transform: uppercase; font-weight: 600; margin-bottom: 2px; }
+.tile .t-title { font-family: var(--serif); font-size: 12.5px; font-weight: 500; color: var(--ink); margin: 0 0 1px; line-height: 1.18; }
+.tile .t-sub { font-size: 10.5px; color: #4A5566; line-height: 1.32; }
+.tile .t-tag { font-family: var(--mono); font-size: 9px; letter-spacing: .14em; color: var(--ink-faint); text-transform: uppercase; margin-top: 6px; }
+
+/* Row caption above each tile row — sits flush-left with the grid,
+   thin rule extends across remaining width. Live caption is tinted
+   navy; secondary caption is muted ink. */
+.tile-row-label { font-family: var(--mono); font-size: 9px; letter-spacing: .16em; font-weight: 600; text-transform: uppercase; color: var(--ink-mute); display: flex; align-items: center; gap: 10px; margin: 0 0 3px; line-height: 1; }
+.tile-row-label .trl-text { white-space: nowrap; }
+.tile-row-label .trl-rule { flex: 1 1 auto; height: 1px; background: var(--rule-soft); }
+.tile-row-label.live .trl-text { color: var(--navy); }
+.tile-row-label.control .trl-text { color: var(--sand-2); }
+
+/* v8A-14: Screen 7 three-group taxonomy.
+   Group 1 (live-opened) uses the strong .tile.live card in a 4-up grid;
+   Group 2 (additional outputs) uses the quiet .tile.secondary card in a
+   6-up grid; Group 3 (control/planning artifacts) is a slim, visually
+   distinct governance row — dashed edge, sand eyebrow — never equal in
+   weight to the audience-facing content tiles. */
+.tile-grid.g4 { grid-template-columns: repeat(4, 1fr); }
+.tile-grid.g6 { grid-template-columns: repeat(6, 1fr); }
+
+/* v8A-22: unified "Demo content units" grid. All units share one calm card
+   family and read as visually equal and credible. The earlier "Shown live"
+   cue (pill + navy highlight on three units) has been removed so the screen
+   shows one unified Deal Prism content family, not internal presentation
+   mechanics. */
+.tile .t-num { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+
+/* v8A-22: Screen 7 planned control / planning artifacts. Quieter than the
+   demo content units, but a readable light-grey governance treatment so they
+   never disappear into the paper background: solid (not dashed) readable
+   border, subdued grey fill, grey — not sand/amber — eyebrow, readable title
+   and sub text. No hover, no pointer cursor, no click behaviour. Never red. */
+.artifact-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+.artifact-chip { background: #EEEAE0; border: 1px solid #C8C0AF; border-radius: 5px; padding: 5px 11px 6px; display: flex; flex-direction: column; }
+.artifact-chip .a-eyebrow { font-family: var(--mono); font-size: 8.5px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--ink-mute); margin-bottom: 1px; }
+.artifact-chip .a-title { font-family: var(--serif); font-size: 11.5px; font-weight: 500; color: var(--ink-2); line-height: 1.16; margin: 0 0 1px; }
+.artifact-chip .a-sub { font-size: 9.5px; color: var(--ink-mute); line-height: 1.3; }
+
+/* v8A-7 "Additional outputs" one-line strip — removed in v8A-8.
+   Class retained for back-compat but never rendered. */
+.add-outputs { display: none; }
+
+/* Expanded live-output cards — v8A-8: each card now fills its grid
+   row (height:100% + parent reveal-step wrapper made flex) so the
+   four cards in the .grid.cols-4 row share a baseline and align
+   their bottoms. Padding and line-height tightened slightly. */
+.tile-expanded { background: var(--card); border: 1px solid var(--navy); border-radius: 6px; padding: 8px 11px 9px; display: flex; flex-direction: column; position: relative; box-shadow: var(--shadow-md); height: 100%; min-height: 0; }
+.tile-expanded .e-tag { font-family: var(--mono); font-size: 9px; letter-spacing: .14em; font-weight: 600; color: var(--navy); text-transform: uppercase; margin-bottom: 3px; }
+.tile-expanded .e-title { font-family: var(--serif); font-size: 13.5px; font-weight: 500; color: var(--ink); margin: 0 0 4px; line-height: 1.18; }
+.tile-expanded .e-text { font-size: 11px; color: var(--ink-2); line-height: 1.4; margin: 0 0 3px; }
+.tile-expanded .e-text.quote { font-style: italic; border-left: 2px solid var(--sand); padding-left: 8px; color: var(--ink); }
+.tile-expanded .micro { margin-top: auto; padding-top: 4px; }
+/* Stretch reveal-step wrappers around expanded tiles so all four
+   cells in the row are equal height. */
+.tile-expanded-row > [data-reveal-step] { display: flex; min-height: min-content; }
+.tile-expanded-row > [data-reveal-step] > .tile-expanded { flex: 1 1 auto; }
+
+/* End-state area (Screen 7 final reveal) — v8A-9: modestly rebalanced
+   for readability. v8A-8 fit was correct but slightly over-compressed;
+   the "End state" badge sat tight against the Review → Approve →
+   Schedule title and the checklist's last word risked touching the
+   bottom edge. v8A-9 restores breathing room: a touch more top padding
+   (clears the badge), a slightly larger title / sub / body, and more
+   even inner spacing. Composition, two-column Week-1 layout and all
+   wording are unchanged; the conditional scroll fallback now guarantees
+   the block is never clipped even if a constrained height pushes it
+   past the safe area. */
+.endstate { background: linear-gradient(180deg, var(--paper) 0%, var(--card-muted) 100%); border: 1px solid var(--navy); border-radius: 8px; padding: 18px 16px 13px; display: flex; flex-direction: column; gap: 8px; position: relative; box-shadow: 0 12px 36px -18px rgba(45,64,94,.35); }
+.endstate::before { content: "End state"; position: absolute; top: -11px; left: 18px; font-family: var(--mono); font-size: 9px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #fff; background: var(--navy); padding: 3px 8px; border-radius: 2px; }
+.endstate .es-head { display: flex; flex-direction: column; gap: 2px; }
+.endstate .es-title { font-family: var(--serif); font-size: 16.5px; font-weight: 500; color: var(--ink); margin: 0; letter-spacing: -.005em; line-height: 1.2; }
+.endstate .es-title .arr { color: var(--sand-2); margin: 0 5px; font-weight: 400; }
+.endstate .es-sub { font-size: 11.5px; color: var(--ink-mute); line-height: 1.45; }
+.endstate .es-body { display: grid; grid-template-columns: 1.2fr 1fr; gap: 11px; }
+.endstate .es-col { background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 9px 12px 9px; }
+.endstate .es-col h5 { font-family: var(--serif); font-size: 13px; font-weight: 500; margin: 0 0 3px; line-height: 1.22; }
+.endstate .es-col .es-mono { font-family: var(--mono); font-size: 9.5px; letter-spacing: .14em; color: var(--sand-2); text-transform: uppercase; font-weight: 600; margin-bottom: 4px; }
+.endstate .es-col p { font-size: 11px; color: var(--ink-2); line-height: 1.5; margin: 0; }
+.endstate .cal-row { display: grid; grid-template-columns: 46px 1fr; gap: 6px; font-size: 11px; padding: 0; color: var(--ink-2); line-height: 1.4; }
+.endstate .cal-row b { font-family: var(--mono); font-size: 9.5px; letter-spacing: .1em; color: var(--sand-2); font-weight: 600; }
+.endstate .cal-row.later b, .endstate .cal-row.later span { color: var(--ink-mute); }
+/* Week 1 two-column subgrid inside the right end-state column.
+   Row-major fill: items 1-2 = row 1 (MON, THU); 3-4 = row 2 (TUE,
+   LATER); 5 = row 3 (WED). Reading column-down therefore gives
+   col 1 = MON / TUE / WED and col 2 = THU / LATER. */
+.endstate .es-cal-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 12px; row-gap: 3px; margin-top: 2px; }
+.endstate .es-cal-grid .cal-row { padding: 0; }
+.endstate .es-govern { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.endstate .gtag { display: flex; align-items: flex-start; gap: 8px; background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: 8px 10px; font-size: 11.5px; color: var(--ink-2); line-height: 1.4; }
+.endstate .gtag .gicon { width: 14px; height: 14px; flex: 0 0 14px; margin-top: 1px; }
+.endstate .gtag strong { font-weight: 600; color: var(--ink); display: block; font-size: 12px; margin-bottom: 1px; }
+
+/* Approval gates (Screen 9) — v8A-5: min-height & padding trimmed. */
+.gate-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+.gate-card { background: var(--card); border: 1px solid var(--rule); border-radius: 5px; padding: 11px 13px; min-height: 110px; display: flex; flex-direction: column; }
+.gate-card .g-step { font-family: var(--mono); font-size: 10px; letter-spacing: .16em; font-weight: 600; color: var(--sand-2); text-transform: uppercase; margin-bottom: 6px; }
+.gate-card .g-title { font-family: var(--serif); font-size: 15px; font-weight: 500; color: var(--ink); margin: 0 0 6px; line-height: 1.2; }
+.gate-card .g-text { font-size: 12.5px; color: #4A5566; line-height: 1.5; }
+
+.lock-card { background: linear-gradient(180deg, #1F2E47 0%, #2D405E 100%); color: #fff; border-radius: 6px; padding: 14px 16px; position: relative; border: 1px solid var(--navy); }
+.lock-card .l-title { font-family: var(--serif); font-size: 16px; font-weight: 500; margin: 0 0 4px; color: #fff; }
+.lock-card .l-text { font-size: 12px; color: rgba(255,255,255,.78); line-height: 1.5; margin: 0; }
+.lock-card .lock-icon { position: absolute; top: 14px; right: 14px; width: 18px; height: 18px; }
+
+/* Mini card */
+.mini-card { background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 16px; }
+.mini-card .m-title { font-family: var(--serif); font-size: 15px; font-weight: 500; margin: 0 0 4px; }
+.mini-card .m-text { font-size: 13px; color: #4A5566; line-height: 1.55; margin: 0; }
+.mini-card.amber { background: var(--amber-bg); border-color: var(--amber-line); }
+.mini-card.amber .m-title { color: var(--amber); }
+.mini-card.amber .m-text { color: #6F4D14; }
+.mini-card.red { background: var(--red-bg); border-color: var(--red-line); }
+.mini-card.red .m-title { color: var(--red); }
+.mini-card.red .m-text { color: #6E2424; }
+.mini-card.navy { background: var(--navy-soft); border-color: #C8D2DF; }
+.mini-card.navy .m-title { color: var(--navy-2); }
+.mini-card.navy .m-text { color: #3A4A66; }
+
+/* Chain (Screen 5) */
+.chain-canvas { background: radial-gradient(circle at 20% 30%, rgba(165,136,81,.06), transparent 50%), radial-gradient(circle at 80% 70%, rgba(45,64,94,.06), transparent 50%), var(--paper); border: 1px solid var(--rule); border-radius: 8px; padding: 24px; flex: 1; display: grid; grid-template-rows: auto auto; align-content: center; gap: 16px; min-height: min-content; }
+.chain-head { font-family: var(--mono); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--sand-2); font-weight: 600; }
+.chain-nodes { display: flex; align-items: stretch; gap: 6px; }
+.chain-node { flex: 1 1 0; min-width: 0; background: var(--card); border: 1px solid var(--navy); border-radius: 5px; padding: 20px 12px; box-shadow: 0 6px 18px -10px rgba(45,64,94,.4); display: flex; flex-direction: column; }
+.chain-node .cn-eyebrow { font-family: var(--mono); font-size: 9px; letter-spacing: .14em; color: var(--sand-2); text-transform: uppercase; font-weight: 600; margin-bottom: 6px; }
+.chain-node .cn-title { font-family: var(--serif); font-size: 13.5px; line-height: 1.22; color: var(--ink); }
+.chain-node .cn-line { font-size: 11px; line-height: 1.4; color: var(--ink-2); margin-top: 11px; padding-top: 11px; border-top: 1px solid var(--rule-soft); }
+.chain-arrow { display: flex; align-items: center; color: var(--ink-faint); font-size: 13px; flex: 0 0 auto; }
+
+/* Relationship flow (Screen 8) — v8A-9: min-height min-content (was 0)
+   for the scroll-safe fallback; flex:1 still fills at 100%. */
+.rel-flow { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 16px; flex: 1; min-height: min-content; }
+.rel-col { display: flex; flex-direction: column; gap: 10px; }
+.rel-col-head { font-family: var(--mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--sand-2); font-weight: 600; margin-bottom: 2px; }
+
+/* Pilot (Screen 10) — v8A-7: padding & grid gaps trimmed for vertical fit. */
+.pilot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.pilot-card { background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 11px 14px; display: flex; flex-direction: column; }
+.pilot-card .ptag { font-family: var(--mono); font-size: 10px; letter-spacing: .14em; color: var(--sand-2); text-transform: uppercase; font-weight: 600; margin-bottom: 6px; }
+.pilot-card .ptitle { font-family: var(--serif); font-size: 18px; font-weight: 500; margin: 0 0 7px; letter-spacing: -.005em; }
+.pilot-card .plist { font-size: 12.5px; color: var(--ink-2); line-height: 1.5; margin: 0; padding: 0; list-style: none; }
+.pilot-card .plist li { position: relative; padding-left: 14px; margin-bottom: 2px; }
+.pilot-card .plist li::before { content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 1px; background: var(--sand); }
+.decision-card { background: var(--navy); color: #fff; border-radius: 6px; padding: 14px 16px; border: 1px solid var(--navy); }
+.decision-card .ptag { color: #D8C9A8; }
+.decision-card .ptitle { color: #fff; }
+.decision-card .plist { color: rgba(255,255,255,.85); }
+.decision-card .plist li { padding-left: 32px; margin-bottom: 6px; }
+.decision-card .plist li::before { display: none; }
+.decision-card .plist li b { position: absolute; left: 0; font-family: var(--mono); font-size: 11px; color: var(--sand-soft); font-weight: 600; }
+
+/* ---------- Appendix overlay ---------- */
+.appendix-pane { position: absolute; inset: 0; background: rgba(20,25,35,.42); display: flex; align-items: stretch; justify-content: flex-end; z-index: 50; opacity: 0; pointer-events: none; transition: opacity .3s ease; }
+.appendix-pane.open { opacity: 1; pointer-events: auto; }
+.appendix-panel { width: 720px; max-width: 60%; background: var(--paper); border-left: 1px solid var(--rule); display: flex; flex-direction: column; transform: translateX(40px); transition: transform .35s ease; height: 100%; }
+.appendix-pane.open .appendix-panel { transform: translateX(0); }
+.appendix-head { padding: 16px 24px; border-bottom: 1px solid var(--rule); display: flex; align-items: center; justify-content: space-between; }
+.appendix-head h2 { font-family: var(--serif); font-size: 22px; font-weight: 500; margin: 0; }
+.appendix-tabs { display: flex; gap: 0; padding: 10px 24px 0; border-bottom: 1px solid var(--rule-soft); flex-wrap: wrap; }
+.appendix-tab { padding: 8px 10px; font-size: 11px; font-family: var(--mono); text-transform: uppercase; letter-spacing: .08em; font-weight: 500; color: var(--ink-mute); background: transparent; border: 0; border-bottom: 2px solid transparent; cursor: pointer; margin-bottom: -1px; white-space: nowrap; }
+.appendix-tab.active { color: var(--ink); border-bottom-color: var(--navy); }
+.appendix-tab:hover { color: var(--ink); }
+.appendix-body { padding: 18px 24px 28px; overflow-y: auto; overscroll-behavior: contain; flex: 1; }
+.appendix-body::-webkit-scrollbar { width: 8px; }
+.appendix-body::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 4px; }
+.qna-card { background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 16px; margin-bottom: 10px; }
+.qna-card .q { font-family: var(--serif); font-size: 16px; font-weight: 500; color: var(--ink); margin: 0 0 6px; }
+.qna-card .a { font-size: 12.5px; color: var(--ink-mute); line-height: 1.55; margin: 0; }
+.checklist { background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 18px; }
+.checklist .row { display: grid; grid-template-columns: 22px 1fr; align-items: baseline; padding: 7px 0; border-top: 1px solid var(--rule-soft); font-size: 13px; color: var(--ink-2); }
+.checklist .row:first-child { border-top: 0; }
+.checklist .row .chk { width: 12px; height: 12px; border: 1.5px solid var(--ink-faint); border-radius: 2px; }
+.placeholder-block { background: var(--card-muted); border: 1px dashed var(--rule); border-radius: 6px; padding: 22px; height: 230px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; color: var(--ink-mute); text-align: center; }
+.placeholder-block .ph-tag { font-family: var(--mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--amber); font-weight: 600; }
+.placeholder-block .ph-title { font-family: var(--serif); font-size: 19px; color: var(--ink-2); margin: 4px 0; }
+.placeholder-block .ph-sub { font-size: 12.5px; max-width: 380px; }
+.lite-list { margin: 0; padding-left: 18px; font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+.lite-list li { margin-bottom: 4px; }
+.lite-list li::marker { color: var(--ink-faint); }
+
+.app-title { font-family: var(--serif); font-size: 22px; font-weight: 500; margin: 6px 0 10px; }
+.app-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--sand-2); font-weight: 600; }
+.app-body-text { font-size: 13px; color: var(--ink-2); line-height: 1.55; max-width: 620px; margin: 0 0 12px; }
+
+/* Appendix A — source proof (real screenshot excerpt + live source URL) */
+.proof-frame { border: 1px solid var(--rule); border-radius: 8px; background: var(--card-muted); padding: 10px; max-height: 360px; overflow-y: auto; overscroll-behavior: contain; }
+.proof-frame::-webkit-scrollbar { width: 8px; }
+.proof-frame::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 4px; }
+.proof-img { display: block; width: 100%; height: auto; border-radius: 4px; box-shadow: 0 1px 4px rgba(20,25,35,.10); }
+.proof-caption { font-family: var(--mono); font-size: 10px; letter-spacing: .04em; color: var(--ink-mute); margin: 8px 2px 0; }
+.source-url-row { display: flex; align-items: center; gap: 12px; background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 16px; }
+.source-url-row .url-label { font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; flex: 0 0 auto; }
+.source-url-row .url-link { font-family: var(--mono); font-size: 12px; color: var(--navy); text-decoration: none; word-break: break-all; min-width: 0; }
+.source-url-row .url-link:hover { text-decoration: underline; }
+
+/* Appendix C — market content pattern cards (Pattern / Why / Opportunity) */
+.pattern-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.pattern-card { background: var(--card); border: 1px solid var(--rule); border-radius: 8px; padding: 16px 18px; display: flex; flex-direction: column; }
+.pattern-card.span-2 { grid-column: 1 / -1; }
+.pattern-card .pc-num { font-family: var(--mono); font-size: 10px; letter-spacing: .14em; color: var(--sand-2); font-weight: 600; }
+.pattern-card .pc-name { font-family: var(--serif); font-size: 17px; font-weight: 500; margin: 3px 0 12px; color: var(--ink); }
+.pattern-card .pc-block { margin-top: 9px; }
+.pattern-card .pc-block:first-of-type { margin-top: 0; }
+.pattern-card .pc-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; }
+.pattern-card .pc-text { font-size: 12.5px; color: #4A5566; line-height: 1.5; margin: 2px 0 0; }
+.pattern-card .pc-block.opp .pc-label { color: var(--navy-2); }
+.pattern-card .pc-block.opp .pc-text { color: var(--navy-2); }
+
+/* ---------- Appendix F · Demo Pack Library ---------- */
+.appf-section { margin-top: 18px; }
+.appf-section:first-of-type { margin-top: 14px; }
+.appf-sec-head { display: flex; align-items: center; gap: 12px; padding-bottom: 9px; margin-bottom: 12px; border-bottom: 1px solid var(--rule-soft); }
+.appf-sec-title { font-family: var(--serif); font-size: 16px; font-weight: 500; color: var(--ink); letter-spacing: -.005em; }
+.appf-chip { font-family: var(--mono); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; padding: 3px 8px; border-radius: 100px; white-space: nowrap; }
+/* v8A-22: active/openable content units use the muted warm/clay accent. */
+.appf-chip.completed { color: var(--sand-2); background: var(--sand-soft); border: 1px solid var(--amber-line); }
+.appf-chip.planned { color: var(--sand-2); background: var(--sand-soft); border: 1px solid var(--amber-line); }
+/* v8A-22: inactive planned control artifacts use a quiet light-grey scheme. */
+.appf-chip.control { color: var(--ink-mute); background: #E6E1D6; border: 1px solid #C8C0AF; }
+/* v8A-22: finished short-video media unit uses a restrained very-light-blue accent. */
+.appf-chip.video { color: #3F5A7C; background: #E4EDF6; border: 1px solid #BCD0E6; }
+
+.appf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.appf-card { background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 13px 15px; display: flex; flex-direction: column; gap: 8px; }
+.appf-card.completed { border-left: 3px solid var(--sand); }
+.appf-card.planned { background: var(--card-muted); border-left: 3px solid var(--sand); }
+.appf-card.control { background: #EEEAE0; border-left: 3px solid #BCB4A3; }
+.appf-card.video { background: #F1F5FB; border-left: 3px solid #8FA9C6; }
+.appf-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.appf-card-title { font-family: var(--serif); font-size: 14.5px; font-weight: 500; color: var(--ink); margin: 0; line-height: 1.3; }
+.appf-status { font-family: var(--mono); font-size: 8.5px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; padding: 2px 6px; border-radius: 3px; white-space: nowrap; flex: 0 0 auto; margin-top: 1px; }
+.appf-status.completed { color: var(--sand-2); background: var(--sand-soft); }
+.appf-status.planned { color: var(--sand-2); background: var(--sand-soft); }
+.appf-status.control { color: var(--ink-mute); background: #E6E1D6; }
+.appf-status.video { color: #3F5A7C; background: #E4EDF6; }
+.appf-meta { display: grid; grid-template-columns: 56px 1fr; gap: 8px; align-items: baseline; }
+.appf-meta-k { font-family: var(--mono); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); font-weight: 600; }
+.appf-meta-v { font-size: 12px; color: var(--ink-2); line-height: 1.45; }
+@media (max-width: 900px) { .appf-grid { grid-template-columns: 1fr; } }
+
+/* v8A-20: active PDF-linked cards (anchors) — restrained clickability cue */
+a.appf-card { text-decoration: none; color: inherit; transition: border-color .15s ease, box-shadow .15s ease, background-color .15s ease; }
+a.appf-card.is-active { cursor: pointer; }
+a.appf-card.is-active:hover { box-shadow: 0 2px 10px rgba(20,30,50,.08); }
+a.appf-card.completed.is-active:hover { border-color: var(--amber-line); border-left-color: var(--sand-2); border-left-width: 4px; }
+a.appf-card.planned.is-active:hover { border-color: var(--amber-line); border-left-color: var(--sand-2); border-left-width: 4px; background: var(--sand-soft); }
+a.appf-card.video.is-active:hover { border-color: #BCD0E6; border-left-color: #5E7DA3; border-left-width: 4px; }
+a.appf-card.is-active:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+/* v8A-21: control/planning status label ("Planned control artifact") may wrap
+   so it never squeezes the card title; stays right-aligned and quiet. */
+.appf-card.control .appf-status { white-space: normal; max-width: 100px; text-align: right; line-height: 1.25; }
+
+/* v8A-20: Appendix G removed — its renderer, content, and CSS are gone. */
+
+/* small util */
+.helper-link { font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-mute); cursor: pointer; background: transparent; border: 0; padding: 4px 6px; }
+.helper-link:hover { color: var(--ink); }
+
+/* =========================================================
+   Deal Prism — opening page (Screen 0)
+   Full-bleed two-layer hero media system:
+     A. Background fill (cover, blurred, dimmed) — kills empty side zones.
+     B. Foreground hero video (preserves 16:9, shifted right) — primary subject.
+   ========================================================= */
+.intro-stage {
+  position: absolute; inset: 0;
+  background: #0A0D13; overflow: hidden;
+  display: block; z-index: 5;
+  /* Tunable: how far right of viewport-center the foreground hero sits.
+     Acceptable manual range: 120px – 180px. */
+  --hero-shift-x: 120px;
+}
+
+/* (A) Background fill layer — atmospheric only */
+.intro-bg {
+  position: absolute; inset: 0; z-index: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center center;
+  /* Pushed back hard so it never competes with the foreground. */
+  filter: blur(36px) saturate(.55) brightness(.32);
+  transform: scale(1.22); /* hide blur edge halo */
+  opacity: 0; transition: opacity 1.4s ease;
+}
+.intro-bg.ready { opacity: .85; }
+.intro-poster {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse at 70% 50%, #2A3243 0%, #141925 55%, #0A0D13 100%);
+}
+
+/* (B) Foreground hero video — composition-correct 16:9, shifted right by --hero-shift-x */
+.intro-fg-wrap {
+  position: absolute; inset: 0; z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.intro-fg {
+  position: absolute;
+  height: 100vh;
+  width: auto;
+  aspect-ratio: 16 / 9;
+  top: 50%;
+  left: calc(50% + var(--hero-shift-x));
+  right: auto;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  filter: saturate(.96) contrast(1.03);
+  opacity: 0; transition: opacity 1.2s ease;
+}
+.intro-fg.ready { opacity: 1; }
+
+/* Soft seam between foreground video and background fill (right edge). */
+.intro-seam {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background:
+    linear-gradient(270deg,
+      rgba(10,13,19,.55) 0%,
+      rgba(10,13,19,.18) 6%,
+      rgba(10,13,19,0) 16%);
+}
+
+/* Left-only protective gradient. The center/right video reads clean. */
+.intro-vignette {
+  position: absolute; inset: 0; z-index: 3; pointer-events: none;
+  background:
+    linear-gradient(90deg,
+      rgba(10,13,19,.92) 0%,
+      rgba(10,13,19,.78) 16%,
+      rgba(10,13,19,.46) 32%,
+      rgba(10,13,19,.14) 48%,
+      rgba(10,13,19,0)   62%),
+    linear-gradient(180deg,
+      rgba(10,13,19,.18) 0%,
+      rgba(10,13,19,0) 16%,
+      rgba(10,13,19,0) 80%,
+      rgba(10,13,19,.42) 100%);
+}
+
+.intro-chrome {
+  position: absolute; inset: 0; z-index: 4;
+  display: grid; grid-template-rows: 1fr auto;
+  padding: clamp(40px, 5.5vh, 64px) clamp(48px, 6vw, 96px);
+  pointer-events: none;
+  gap: clamp(16px, 2.4vh, 28px);
+}
+.intro-chrome > * { pointer-events: auto; }
+
+.intro-body { display: flex; align-items: center; min-height: 0; }
+.intro-content {
+  max-width: 620px;
+  display: flex; flex-direction: column;
+  gap: 22px;
+}
+.intro-eyebrow {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .26em;
+  text-transform: uppercase; color: #D6BE8A; font-weight: 600;
+  display: inline-flex; align-items: center; gap: 14px;
+}
+.intro-eyebrow .ie-bar { display: inline-block; width: 28px; height: 1px; background: #D6BE8A; }
+
+.intro-title {
+  font-family: var(--serif);
+  /* Slightly reduced from v5 for better balance with the video. */
+  font-size: clamp(72px, 7.4vw, 116px);
+  line-height: .96;
+  letter-spacing: -.034em; color: #fff; margin: 0; font-weight: 400;
+  text-shadow: 0 2px 50px rgba(0,0,0,.45);
+}
+
+.intro-slogan {
+  font-family: var(--serif); font-style: italic;
+  font-size: clamp(24px, 2vw, 32px);
+  line-height: 1.22; color: rgba(255,255,255,.98); margin: 0;
+  letter-spacing: -.008em; font-weight: 400;
+  max-width: 580px;
+  text-shadow: 0 1px 24px rgba(0,0,0,.4);
+}
+
+/* Subtitle — readable secondary line, sits close to the slogan. */
+.intro-explainer {
+  font-family: var(--sans);
+  font-size: clamp(15px, 1.12vw, 17.5px);
+  font-weight: 400;
+  color: rgba(255,255,255,.86);
+  letter-spacing: .005em;
+  line-height: 1.5;
+  margin: -6px 0 0;
+  max-width: 540px;
+  text-shadow: 0 1px 18px rgba(0,0,0,.4);
+}
+
+/* Mechanism line — light first-reveal / transition cue toward Screen 1.
+   Sits below the explainer, separated by the rule, treated quieter than the
+   slogan but more deliberate than a caption.
+
+   v8A-2: font size reduced ~11% and vertical position lifted ~14px to
+   improve overall balance after the supporting micro-line was removed.
+   Reveal is driven by --mechanism-reveal-progress (0–1), updated each frame
+   from the foreground intro video's currentTime while Screen 0 is active. */
+.intro-mechanism {
+  --mechanism-reveal-progress: 1;            /* default: fully shown (fallback-safe) */
+  --mechanism-reveal-soft: 28px;             /* soft trailing edge for cinematic feel */
+
+  font-family: var(--serif);
+  font-size: clamp(13.8px, 1.05vw, 16.5px);  /* ~11% smaller than v8A */
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -.004em;
+  color: rgba(255,255,255,.78);
+  margin: -10px 0 0;                          /* lifted ~14px vs v8A (was 4px) */
+  max-width: 520px;
+  text-shadow: 0 1px 18px rgba(0,0,0,.4);
+
+  /* Left-to-right mask. The mask layout is what changes; the text layout
+     never shifts — only the visible portion changes. */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    #000 0,
+    #000 calc(var(--mechanism-reveal-progress) * 100%),
+    rgba(0,0,0,0) calc(var(--mechanism-reveal-progress) * 100% + var(--mechanism-reveal-soft))
+  );
+          mask-image: linear-gradient(
+    to right,
+    #000 0,
+    #000 calc(var(--mechanism-reveal-progress) * 100%),
+    rgba(0,0,0,0) calc(var(--mechanism-reveal-progress) * 100% + var(--mechanism-reveal-soft))
+  );
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  /* When the reveal controller is active it sets data-reveal="animating"
+     and starts at 0; until then we stay at 1 (fully shown) so the line is
+     never permanently hidden in any fallback path. */
+}
+/* v8A-3 Screen 0 flash-fix:
+   The mechanism line is armed-hidden in the markup (data-reveal="armed")
+   so the very first paint already has progress=0. The JS reveal controller
+   transitions it to data-reveal="animating" inside the same synchronous
+   render pass; on any failure / metadata-timeout / reduced-motion path it
+   removes the attribute, which falls back to the default progress=1 (fully
+   shown). Default progress remains 1 so the line is never permanently hidden. */
+.intro-mechanism[data-reveal="armed"],
+.intro-mechanism[data-reveal="animating"] {
+  --mechanism-reveal-progress: 0;
+}
+.intro-mechanism .im-accent {
+  color: #E5CFA0;
+  font-style: italic;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Reduced-motion fallback: show full mechanism line statically, no reveal. */
+  .intro-mechanism { --mechanism-reveal-progress: 1 !important; }
+}
+
+
+.intro-rule {
+  width: 56px; height: 1px; background: rgba(255,255,255,.24);
+  margin: 6px 0 0;
+}
+
+/* Bottom utility row — space cue (left) + governance (right) on one baseline. */
+.intro-utility-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  width: 100%; gap: 24px;
+}
+.intro-space-cue {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .28em;
+  text-transform: uppercase; font-weight: 500;
+  color: rgba(255,255,255,.72);
+  display: inline-flex; align-items: baseline; gap: 12px;
+  white-space: nowrap;
+  text-shadow: 0 1px 14px rgba(0,0,0,.4);
+}
+.intro-space-cue .isc-bar {
+  display: inline-block; width: 22px; height: 1px;
+  background: rgba(214,190,138,.7); transform-origin: left center;
+  animation: introCueBar 3.6s ease-in-out infinite;
+  /* keep baseline alignment honest — nudge the rule down a touch */
+  transform: translateY(-3px) scaleX(.6);
+}
+@keyframes introCueBar {
+  0%, 100% { transform: translateY(-3px) scaleX(.6); opacity: .55; }
+  50%      { transform: translateY(-3px) scaleX(1);  opacity: 1;   }
+}
+
+.intro-gov-tag {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .22em;
+  text-transform: uppercase; color: rgba(255,255,255,.6); font-weight: 500;
+  display: inline-flex; align-items: baseline; gap: 10px;
+  white-space: nowrap;
+}
+.intro-gov-tag .igt-dot {
+  width: 5px; height: 5px; background: #D6BE8A; border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(214,190,138,.14);
+  transform: translateY(-1px);
+}
+.intro-gov-tag .igt-sep {
+  color: rgba(255,255,255,.28);
+  margin: 0 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-fg, .intro-bg { opacity: 0 !important; }
+  .intro-poster { display: block; }
+  .intro-space-cue .isc-bar { animation: none; }
+}
+
+/* =========================================================
+   v8A-18 002B-5 — Closing frame (Opening-to-Operating Bridge)
+   A single final decision frame after Screen 10. NOT a normal
+   numbered demo screen: no STEP/SCREEN counter, no stage-title.
+   Left = premium dark brand panel echoing the opening page;
+   right = light executive decision panel echoing Screens 1–10;
+   a slim governance/assurance strip is integrated below.
+   The frame fills the stage above the preserved bottom rail.
+   ========================================================= */
+.closing-frame { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; background: var(--bg); overflow: hidden; }
+.closing-split { flex: 1 1 auto; min-height: 0; display: grid; grid-template-columns: 0.92fr 1.08fr; }
+
+/* Left — premium dark brand panel (frozen-still feel of the opening page) */
+.closing-left {
+  position: relative; overflow: hidden; color: #fff;
+  background: radial-gradient(ellipse at 68% 42%, #2A3243 0%, #141925 56%, #0A0D13 100%);
+  display: flex; flex-direction: column;
+  padding: clamp(34px, 5vh, 60px) clamp(38px, 4.4vw, 80px);
+}
+.closing-left::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    linear-gradient(90deg, rgba(10,13,19,.55) 0%, rgba(10,13,19,.12) 34%, rgba(10,13,19,0) 60%),
+    linear-gradient(180deg, rgba(10,13,19,0) 62%, rgba(10,13,19,.5) 100%);
+}
+.cl-top {
+  position: relative; z-index: 1; flex: 0 0 auto;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .26em;
+  text-transform: uppercase; color: #D6BE8A; font-weight: 600;
+  display: inline-flex; align-items: center; gap: 14px;
+}
+.cl-top .cl-bar { display: inline-block; width: 28px; height: 1px; background: #D6BE8A; flex: 0 0 auto; }
+.cl-center { position: relative; z-index: 1; margin: auto 0; display: flex; flex-direction: column; gap: clamp(14px, 2vh, 20px); }
+.cl-wordmark { font-family: var(--serif); font-weight: 400; font-size: clamp(46px, 5.2vw, 80px); line-height: .98; letter-spacing: -.032em; color: #fff; margin: 0; text-shadow: 0 2px 44px rgba(0,0,0,.42); }
+.cl-slogan { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(19px, 1.65vw, 26px); line-height: 1.24; letter-spacing: -.006em; color: rgba(255,255,255,.97); margin: 0; max-width: 440px; text-shadow: 0 1px 22px rgba(0,0,0,.38); }
+.cl-rule { width: 52px; height: 1px; background: rgba(255,255,255,.24); }
+.cl-mechanism { font-family: var(--serif); font-weight: 400; font-size: clamp(13.5px, 1vw, 16px); line-height: 1.5; color: rgba(255,255,255,.74); margin: 0; max-width: 430px; text-shadow: 0 1px 16px rgba(0,0,0,.4); }
+.cl-mechanism em { font-style: italic; color: #E5CFA0; }
+.cl-support { position: relative; z-index: 1; flex: 0 0 auto; font-family: var(--sans); font-size: clamp(12.5px, .92vw, 14px); color: rgba(255,255,255,.6); letter-spacing: .004em; }
+
+/* Right — light executive decision panel (Screens 1–10 system) */
+.closing-right {
+  background: var(--paper); border-left: 1px solid var(--rule);
+  display: flex; flex-direction: column;
+  padding: clamp(34px, 5vh, 60px) clamp(40px, 4.4vw, 78px);
+}
+.cr-eyebrow { flex: 0 0 auto; font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--sand-2); font-weight: 600; }
+.cr-flow { margin: auto 0; display: flex; flex-direction: column; gap: clamp(24px, 4vh, 40px); }
+.cr-block .cr-label { font-family: var(--mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; margin: 0 0 12px; display: flex; align-items: center; gap: 10px; }
+.cr-block .cr-label::before { content: ""; width: 6px; height: 6px; background: var(--sand); border-radius: 1px; transform: rotate(45deg); flex: 0 0 auto; }
+.cr-statement { font-family: var(--serif); font-weight: 400; font-size: clamp(24px, 2.5vw, 35px); line-height: 1.16; letter-spacing: -.016em; color: var(--ink); margin: 0; max-width: 600px; text-wrap: balance; }
+.cr-statement em { font-style: italic; color: var(--sand-2); }
+.cr-ask { padding-top: clamp(20px, 3vh, 30px); border-top: 1px solid var(--rule-soft); }
+.cr-ask-text { font-family: var(--serif); font-weight: 500; font-size: clamp(26px, 2.8vw, 40px); line-height: 1.08; letter-spacing: -.02em; color: var(--navy); margin: 0; }
+
+/* Integrated governance / assurance strip */
+.closing-gov {
+  flex: 0 0 auto; display: flex; align-items: center; gap: 14px;
+  padding: 13px clamp(38px, 4.4vw, 80px);
+  background: var(--bg-deep); border-top: 1px solid var(--rule);
+}
+.closing-gov .cg-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sand); box-shadow: 0 0 0 3px rgba(165,136,81,.14); flex: 0 0 auto; }
+.closing-gov .cg-text { font-family: var(--mono); font-size: clamp(9.5px, .76vw, 10.5px); letter-spacing: .13em; text-transform: uppercase; color: var(--ink-2); font-weight: 500; white-space: nowrap; }
+.closing-gov .cg-note { font-family: var(--mono); font-size: clamp(9.5px, .76vw, 10.5px); letter-spacing: .13em; text-transform: uppercase; color: var(--ink-faint); font-weight: 500; margin-left: auto; flex: 0 0 auto; white-space: nowrap; }
+@media (max-width: 1040px) { .closing-gov .cg-note { display: none; } }
+
+/* Closing bottom rail — preserves the existing rail style + icon-only
+   control concept, but carries a quiet closing label instead of the
+   STEP/SCREEN counter so the frame never reads as "Screen 11". */
+.closing-rail .closing-railmark { display: inline-flex; align-items: center; flex: 0 0 auto; }
+.closing-rail .closing-railmark .brand { font-size: 16px; }
+.closing-rail .rail-spacer { flex: 1 1 auto; min-width: 12px; }
+@media (max-width: 720px) { .closing-rail .closing-railmark .stage-title, .closing-rail .closing-railmark .brand-sep { display: none; } }
+
+</style>
+</head>
+<body>
+<div class="viewport"><div id="stage" class="stage"></div></div>
+
+<script>
+/* =========================================================
+   Deal Prism — single-file standalone (vanilla JS).
+   (Internal workflow tag W-WS preserved only in code/comments;
+    no visible audience-facing reference.)
+   ========================================================= */
+"use strict";
+
+/* Governance-chip presets per screen (v8A-5: now rendered in the bottom
+   rail rather than the topbar). Every screen surfaces the four required
+   cues via GOV_ALWAYS; per-screen entries add optional contextual cues
+   sparingly so the rail never reads as a warning banner. */
+const GOV_ALWAYS = [
+  "Internal demo only",
+  "Human Rubicon review required",
+  "No automated publishing",
+  "Marketing-owned workflow",
+];
+const GOV_BY_SCREEN = {
+  1: [],
+  2: [],
+  3: [],
+  4: [],
+  5: ["AI pre-screen only"],
+  6: ["AI pre-screen only"],
+  7: ["Draft, not public-approved"],
+  8: [],
+  9: ["Leadership-governed"],
+ 10: ["Leadership-governed"],
+};
+
+/* Bottom-rail governance text (v8A-7).
+   Single fixed short string per the 002A-7A spec. Per-screen variants
+   removed from the rail (longer governance cues still appear on the
+   dedicated governance screens via existing content). */
+const BOTTOM_RAIL_GOV = "Internal demo · Human review · No automated publishing · Marketing-owned";
+const BOTTOM_RAIL_GOV_COMPACT = "Internal demo · Human review · No auto-publish · Marketing-owned";
+
+function govChips(n) {
+  // n is intentionally unused — the bottom rail no longer varies by screen.
+  const items = BOTTOM_RAIL_GOV.split(" · ");
+  return `
+    <div class="gov-chips" aria-label="Governance">
+      <span class="gc-dot" aria-hidden="true"></span>
+      <span class="gc-text">${items.map((t, i) => `${i ? `<span class="gc-sep">·</span>` : ""}${esc(t)}`).join("")}</span>
+    </div>
+  `;
+}
+
+/* Compact two-line STEP / SCREEN counter (v8A-6).
+   Replaces the old "01 / 10" one-liner. STEP updates when reveal step
+   changes; SCREEN updates when the screen changes. */
+function counterHTML(n) {
+  const ms = (MAX_STEPS[n] ?? 0) + 1;
+  const curStep = Math.min(state.step + 1, ms);
+  const cur = String(n).padStart(1, "0");
+  const tot = String(SCREEN_COUNT);
+  return `
+    <div class="counter" id="counter" aria-label="Step ${curStep} of ${ms}, screen ${cur} of ${tot}">
+      <span class="ct-label">Step</span><span class="ct-value">${curStep}/${ms}</span>
+      <span class="ct-label">Screen</span><span class="ct-value">${cur}/${tot}</span>
+    </div>
+  `;
+}
+
+/* Context-relevant appendix target per screen — used by the bottom
+   Appendix icon. */
+const APPENDIX_BY_SCREEN = {
+  1: "A", 2: "C", 3: "A", 4: "A", 5: "A",
+  6: "A", 7: "F", 8: "A", 9: "B", 10: "D",
+  11: "F",
+};
+function appendixForScreen(n) { return APPENDIX_BY_SCREEN[n] || "A"; }
+
+/* v8A-6: body-level context line removed from Screens 1–10.
+   The current stage title now lives in the topbar beside Deal Prism.
+   This stub remains so any residual call site renders nothing rather
+   than failing. */
+function contextLine(n) { return ""; }
+
+/* Topbar stage-title fragment — "Deal Prism · [Current stage title]".
+   Updated on every render so it tracks the active screen. */
+function stageTitleHTML(n) {
+  const title = SCREEN_CONTEXT_TITLES[n];
+  if (!title) return "";
+  return `<span class="brand-sep" aria-hidden="true"></span><span class="stage-title" id="stage-title">${esc(title)}</span>`;
+}
+
+/* Audience-facing screen titles used in the consolidated context line. */
+const SCREEN_CONTEXT_TITLES = {
+  1:  "Premise",
+  2:  "Market Rhythm",
+  3:  "Gap is Rhythm",
+  4:  "Leakage",
+  5:  "Transformation Moment",
+  6:  "Page to Structured Brief",
+  7:  "Brief to Outputs",
+  8:  "Broker & Staff",
+  9:  "Governance",
+ 10:  "Pilot",
+};
+
+/* ---------- HTML helpers ---------- */
+const h = (s) => String(s == null ? "" : s);
+const esc = (s) => h(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+
+/* ---------- State ---------- */
+const SCREEN_COUNT = 10;
+/* v8A-18 002B-5: the closing frame is an extra screen index beyond the
+   numbered demo (SCREEN_COUNT stays 10 so Screens 1–10 still read "/10").
+   It is reached by a normal Next from Screen 10's final step. */
+const CLOSING_SCREEN = 11;
+const MAX_STEPS = { 0:0, 1:1, 2:0, 3:2, 4:1, 5:0, 6:2, 7:3, 8:2, 9:1, 10:1, 11:0 };
+const SCREEN_TITLES = { 0:"Deal Prism", 1:"Premise", 2:"Market rhythm", 3:"Gap is rhythm", 4:"Leakage", 5:"Transformation moment", 6:"Page → brief", 7:"Brief → outputs", 8:"Broker & staff", 9:"Governance", 10:"Pilot" };
+
+/* Persistent status labels per screen */
+const LABELS = {
+  1:[{t:"Internal demo only"},{t:"Human Rubicon review required",c:"amber"}],
+  2:[{t:"Light market context"},{t:"Details in appendix"}],
+  3:[{t:"Marketing-owned workflow",c:"navy"}],
+  4:[{t:"Source-bound proof",c:"sand"}],
+  5:[{t:"AI pre-screen only",c:"navy"},{t:"No automated publishing",c:"amber"}],
+  6:[{t:"Source-bound brief",c:"sand"},{t:"Controls before outputs",c:"amber"}],
+  7:[{t:"Draft, not public-approved",c:"amber"},{t:"Human Rubicon review required",c:"amber"}],
+  8:[{t:"Optional staff amplification"},{t:"Marketing-owned workflow",c:"navy"}],
+  9:[{t:"No automated publishing",c:"amber"},{t:"Human Rubicon review required",c:"amber"},{t:"Leadership-governed",c:"navy"}],
+ 10:[{t:"Public-source-only pilot",c:"sand"},{t:"No internal loan files",c:"amber"}],
+};
+
+/* Debug-mode (clickable progress dots) if URL has ?debug or #debug */
+const DEBUG = /[?#&]debug\b/.test(location.search + location.hash);
+
+const state = {
+  screen: 0,
+  step: 0,
+  appendix: null,  // null | 'A'|'B'|'C'|'D'|'E'
+};
+
+/* ---------- Status label HTML ---------- */
+function statLabel(l) {
+  return `<span class="statlabel ${l.c||""}"><span class="dot"></span>${esc(l.t)}</span>`;
+}
+
+/* ---------- Foot-note helpers ----------
+   v8A-6: page-level appendix buttons are removed from screen bodies.
+   `appendixBtn()` is preserved but now returns an empty string so any
+   residual call site renders nothing rather than failing. The bottom
+   Appendix icon already provides context-relevant access. */
+function footNote(left, right) {
+  return "";
+}
+function appendixBtn(target, label) {
+  return "";
+}
+
+/* ===================================================================
+   SCREEN RENDERERS
+   =================================================================== */
+
+function screen0() {
+  // Opening page — Deal Prism. Full-bleed two-layer hero (bg fill + fg video).
+  return `
+    <div class="intro-stage" data-screen-label="00 Deal Prism" data-om-validate>
+      <div class="intro-poster" aria-hidden="true"></div>
+      <video
+        class="intro-bg"
+        id="intro-bg"
+        muted
+        autoplay
+        playsinline
+        preload="auto"
+        aria-hidden="true"
+        tabindex="-1"
+      >
+        <source src="assets/Concept-1-video-1.mp4" type="video/mp4" />
+      </video>
+
+      <div class="intro-fg-wrap" aria-hidden="true">
+        <video
+          class="intro-fg"
+          id="intro-video"
+          muted
+          autoplay
+          playsinline
+          preload="auto"
+          aria-hidden="true"
+          tabindex="-1"
+        >
+          <source src="assets/Concept-1-video-1.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <div class="intro-seam" aria-hidden="true"></div>
+      <div class="intro-vignette" aria-hidden="true"></div>
+
+      <div class="intro-chrome">
+        <div class="intro-body">
+          <div class="intro-content">
+            <div class="intro-eyebrow"><span class="ie-bar"></span>For Rubicon Mortgage Fund</div>
+            <h1 class="intro-title">Deal Prism</h1>
+            <p class="intro-slogan">Refract the deal. Deliver the value.</p>
+            <p class="intro-explainer">A structured approach to deal-based content reuse.</p>
+            <div class="intro-rule"></div>
+            <p class="intro-mechanism" id="intro-mechanism" data-reveal="armed">Verified deal facts become <span class="im-accent">targeted assets</span> for distinct business audiences.</p>
+          </div>
+        </div>
+
+        <div class="intro-utility-row">
+          <span class="intro-space-cue"><span class="isc-bar"></span>Press space to reveal</span>
+          <span class="intro-gov-tag">
+            <span class="igt-dot"></span>
+            AI-assisted <span class="igt-sep">&middot;</span> Marketing-owned <span class="igt-sep">&middot;</span> Leadership-governed <span class="igt-sep">&middot;</span> Human-approved
+          </span>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function screen1() {
+  const cards = [
+    { id:"Example 01", label:"Construction Loan", amount:"$2.1M construction loan in Inverness.", proof:"Project evidence, milestones, borrower contribution, completion-purpose structure.", risk:"No completion, sale, approval, or timing claims." },
+    { id:"Example 02", label:"Reverse 1031 Transaction", amount:"$9.025M portfolio cash-out loan connected to a Reverse 1031.", proof:"Complex execution where timing, collateral, and structure align.", risk:"No tax advice or qualification guarantee." },
+    { id:"Example 03", label:"Cash-Out Refinance", amount:"$3.5M cash-out refinance in Anaheim.", proof:"Asset-based liquidity, staged draws, collateral clarity, business-purpose use.", risk:"No business-rescue or liquidity-guarantee framing." },
+    { id:"Example 04", label:"Industrial Acquisition", amount:"$1.7M industrial acquisition in San Francisco.", proof:"Tenant-to-owner acquisition, owner-user context, seller-carry coordination.", risk:"No appreciation, tenant-quality, or refinance claims." },
+    { id:"Example 05", label:"Retail Strip Center Acquisition", amount:"$5.7M retail strip center acquisition in Vallejo.", proof:"Value-add acquisition structure, high-vacancy context, bridge financing, borrower plan.", risk:"No leasing, repositioning, tenant-demand, or low-risk framing.", featured:true },
+  ];
+  return `
+    <div class="screen-head">
+      ${contextLine(1)}
+      <h1 class="headline">Rubicon already has <em>the proof</em>.</h1>
+      <p class="short">Every funded deal is more than a past transaction. It is a reusable credibility asset.</p>
+      <p class="body-text" style="max-width: 720px">Rubicon has a public archive of real funded-deal examples. The opportunity is to make this proof work harder across controlled business channels.</p>
+    </div>
+    <div class="section-h">Public funded-deal archive · five examples</div>
+    <div class="grid cols-5">
+      ${cards.map((c,i) => `
+        <div class="deal-card" data-reveal-step="0" ${c.featured ? `data-highlight-step="1"` : ""} style="--rd:${i*120}ms">
+          <div class="deal-id">${esc(c.id)}</div>
+          <div class="deal-label">${esc(c.label)}</div>
+          <div class="deal-amount">${esc(c.amount)}</div>
+          <div class="proof-row"><b>Proof</b>${esc(c.proof)}</div>
+          <div class="risk-row"><b>Risk cue</b>${esc(c.risk)}</div>
+        </div>
+      `).join("")}
+    </div>
+    ${footNote("", appendixBtn("A","Appendix: Source proof"))}
+  `;
+}
+
+function screen2() {
+  const patterns = [
+    { title:"Resource hubs", text:"Proof stays findable after the first announcement." },
+    { title:"Newsletters", text:"Deal examples become recurring credibility touchpoints." },
+    { title:"Event reuse", text:"Market activity becomes follow-up content." },
+    { title:"Video concepts", text:"Complex lending ideas become easier to explain." },
+    { title:"Staff amplification", text:"Team visibility supports relationship recall." },
+  ];
+  return `
+    <div class="screen-head">
+      ${contextLine(2)}
+      <h1 class="headline">The market is moving toward <em>systematic proof reuse</em>.</h1>
+      <p class="short">The strongest pattern is not content volume. It is operating rhythm.</p>
+      <p class="body-text">The market increasingly rewards systematic proof reuse. Rubicon already has the proof; the gap is operating rhythm.</p>
+    </div>
+    <div class="section-h">Five reuse patterns · category view</div>
+    <div class="grid cols-5">
+      ${patterns.map((p,i) => `
+        <div class="pattern-card" data-reveal-step="0" style="--rd:${i*140}ms">
+          <div class="pnum">Pattern 0${i+1}</div>
+          <div class="ptitle">${esc(p.title)}</div>
+          <div class="ptext">${esc(p.text)}</div>
+        </div>
+      `).join("")}
+    </div>
+    ${footNote("", appendixBtn("C","Appendix: Competitor categories"))}
+  `;
+}
+
+function screen3() {
+  return `
+    <div class="screen-head">
+      ${contextLine(3)}
+      <h1 class="headline">Rubicon's gap is not proof. It is <em>rhythm</em>.</h1>
+      <p class="short">Rubicon already has the raw material. The opportunity is orchestration.</p>
+    </div>
+    <div class="stage-flow" style="margin-top:14px">
+      <div class="stage-cell" data-reveal-step="0">
+        <div class="num">Stage 01</div>
+        <div class="stitle">Proof exists</div>
+        <div class="stext">Rubicon already has funded-deal credibility — real numbers, real structures, real public examples.</div>
+      </div>
+      <div class="connector" data-reveal-step="1"><div class="line"></div><div class="arrow"></div></div>
+      <div class="stage-cell" data-reveal-step="1" style="--rd:80ms">
+        <div class="num">Stage 02</div>
+        <div class="stitle">Rhythm gap</div>
+        <div class="stext">Proof can lose visibility after first use. The same source page rarely becomes a second business asset.</div>
+      </div>
+      <div class="connector" data-reveal-step="2"><div class="line"></div><div class="arrow"></div></div>
+      <div class="stage-cell" data-reveal-step="2" style="--rd:80ms">
+        <div class="num">Stage 03</div>
+        <div class="stitle">Repeatable system</div>
+        <div class="stext">Briefs, outputs, approval, calendar — operated by marketing, governed by leadership.</div>
+      </div>
+    </div>
+    ${footNote("", "")}
+  `;
+}
+
+function screen4() {
+  const channels = [
+    { label:"Channel 01", title:"Single-use proof", text:"A funded deal may appear once, then stop working." },
+    { label:"Channel 02", title:"Broker value", text:"The same proof can support broker recall." },
+    { label:"Channel 03", title:"Staff amplification", text:"The same proof can support safe staff visibility." },
+    { label:"Channel 04", title:"Newsletter value", text:"The same proof can support recurring credibility." },
+    { label:"Channel 05", title:"Calendar rhythm", text:"The same proof can enter a scheduled workflow." },
+  ];
+  return `
+    <div class="screen-head">
+      ${contextLine(4)}
+      <h1 class="headline">The <em>leakage</em> problem.</h1>
+      <p class="short">A funded deal may be posted once, then stop creating visibility.</p>
+      <p class="body-text">One public funded-deal page can support many controlled business assets. If it is used only once, credibility value is left unused.</p>
+    </div>
+    <div class="leakage">
+      <div data-reveal-step="0">
+        <div class="source-card">
+          <div class="src-id">Working example</div>
+          <div class="src-title">Vallejo Retail Strip Center</div>
+          <ul class="src-facts">
+            <li>$5.7M acquisition / bridge loan.</li>
+            <li>150,000 SF retail strip center.</li>
+            <li>14.16 acres in Vallejo.</li>
+            <li>High-vacancy context, bridge financing.</li>
+          </ul>
+          <div class="micro">Single source of proof</div>
+        </div>
+      </div>
+      <div class="channels">
+        ${channels.map((c,i) => `
+          <div class="channel-card" data-reveal-step="0" data-channel-step="1" style="--rd:${120+i*100}ms">
+            <div class="clabel">${esc(c.label)}</div>
+            <div class="ctitle">${esc(c.title)}</div>
+            <div class="ctext">${esc(c.text)}</div>
+          </div>
+        `).join("")}
+      </div>
+    </div>
+    ${footNote("", "")}
+  `;
+}
+
+function screen5() {
+  const nodes = [
+    { eb:"Source",     t:"Public proof page",                ln:"Start from public proof, not a blank prompt." },
+    { eb:"Brief",      t:"Structured brief",                 ln:"Extract facts, gaps, and framing." },
+    { eb:"Boundaries", t:"Risk controls",                    ln:"Remove unsafe claims before drafting." },
+    { eb:"Angle",      t:"Editorial thesis + audience fit",  ln:"Define what each audience should understand." },
+    { eb:"Outputs",    t:"Selected content assets",          ln:"Create targeted assets, not copies." },
+    { eb:"Approval",   t:"Approval checklist",               ln:"Check facts, tone, and risk." },
+    { eb:"Calendar",   t:"Calendar placement",               ln:"Place approved assets into rhythm." },
+  ];
+  return `
+    <div class="screen-head">
+      ${contextLine(5)}
+      <h1 class="headline">One public page becomes a <em>controlled content workflow</em>.</h1>
+      <p class="short">The working example shows how verified proof becomes structured, risk-aware, audience-specific business assets.</p>
+      <p class="body-text">A public source becomes a controlled workflow: Source → Brief → Boundaries → Angle → Outputs → Approval → Calendar.</p>
+    </div>
+    <div class="chain-canvas">
+      <div class="chain-head">Working-example transformation</div>
+      <div class="chain-nodes">
+        ${nodes.map((n,i) => `
+          <div class="chain-node" data-reveal-step="0" style="--rd:${i*120}ms">
+            <div class="cn-eyebrow">${esc(n.eb)}</div>
+            <div class="cn-title">${esc(n.t)}</div>
+            <div class="cn-line">${esc(n.ln)}</div>
+          </div>
+          ${i < nodes.length-1 ? `<div class="chain-arrow" data-reveal-step="0" style="--rd:${i*120+60}ms">›</div>` : ""}
+        `).join("")}
+      </div>
+    </div>
+    ${footNote("", "")}
+  `;
+}
+
+function screen6() {
+  return `
+    <div class="screen-head">
+      ${contextLine(6)}
+      <h1 class="headline">Before outputs, <em>discipline</em>.</h1>
+      <p class="short">The system starts with facts, missing fields, and do-not-say controls.</p>
+      <p class="body-text">The working example is not treated as a writing prompt first. It is treated as a source-bound brief first.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns: 0.95fr 1.25fr 0.85fr; gap: 14px; flex:1 1 auto; min-height:min-content">
+      <div data-reveal-step="0">
+        <div class="source-card">
+          <div class="src-id">Vallejo Retail Strip Center</div>
+          <div class="src-title">One Public Funded-Deal Page</div>
+          <ul class="src-facts">
+            <li>$5.7M acquisition / bridge loan.</li>
+            <li>150,000 SF retail strip center on 14.16 acres.</li>
+            <li>High-vacancy property acquired from a servicer.</li>
+            <li>12-month term. 60% LTC. First deed of trust.</li>
+          </ul>
+          <div class="micro">Public funded-deal proof object</div>
+        </div>
+      </div>
+
+      <div data-reveal-step="1" style="--rd:80ms">
+        <div class="brief-card">
+          <div class="b-head"><h3 class="b-title">Structured Brief</h3><span class="fd-tag">Working example</span></div>
+          <div class="b-section">
+            <div class="b-label">Approved public facts</div>
+            <ul class="b-list">
+              <li>$5.7M acquisition / bridge loan.</li>
+              <li>150,000 SF retail strip center on 14.16 acres in Vallejo.</li>
+              <li>Acquired from a servicer.</li>
+              <li>12-month term, 60% LTC, first deed of trust.</li>
+            </ul>
+          </div>
+          <div class="b-section">
+            <div class="b-label warn">Missing or unclear fields</div>
+            <ul class="b-list cols">
+              <li>Borrower identity</li>
+              <li>Exact vacancy percentage</li>
+              <li>Purchase price</li>
+              <li>Servicer identity</li>
+              <li>Tenant names</li>
+              <li>Renovation budget</li>
+              <li>Leasing outcome</li>
+              <li>Pad-sale outcome</li>
+              <li>Exit result</li>
+              <li>Staff member responsible</li>
+            </ul>
+          </div>
+          <div class="b-section b-lower">
+            <div class="b-lrow">
+              <div class="b-label">Main framing</div>
+              <p class="b-ltext">Transitional retail acquisition, bridge-finance logic, borrower plan, risk boundaries, and audience-specific relevance.</p>
+            </div>
+            <div class="b-lrow">
+              <div class="b-label">Editorial angle</div>
+              <p class="b-ltext">What this deal helps each audience understand.</p>
+            </div>
+          </div>
+          <div class="micro">Facts before drafting</div>
+        </div>
+      </div>
+
+      <div data-reveal-step="2" style="--rd:80ms">
+        <div class="risk-ribbon">
+          <div class="r-title">Do not claim</div>
+          <div class="r-text">successful repositioning · leasing success · renovation success · pad-sale success · profit · return · yield · tenant demand · market recovery · low risk · guaranteed exit · borrower identity</div>
+          <div class="micro" style="border-top-color: rgba(142,48,48,.18); color: rgba(142,48,48,.7)">Controls before outputs</div>
+        </div>
+      </div>
+    </div>
+
+    ${footNote("", appendixBtn("A","Appendix: Source proof"))}
+  `;
+}
+
+function screen7() {
+  // v8A-22: Screen 7 overview reads as ONE unified Deal Prism content-unit
+  // family. All nine demo content units are visually equal and credible — no
+  // "Shown live" pills, no navy shown-live highlight, no stronger borders on
+  // any subset. Internal presentation mechanics are not exposed here; content
+  // units open only from Appendix F (Screen 7 units are not clickable). The
+  // "Control / planning artifacts" group stays separate and quieter, but is
+  // rendered in a readable light-grey governance style so it never disappears
+  // into the background. The expanded live-output cards (steps 1–2) and the
+  // Review → Approve → Schedule end-state (step 3) are unchanged. No reveal
+  // steps added.
+  const demoUnits = [
+    { role:"Visual proof",          title:"Visual Carousel / Deal Cards" },
+    { role:"Broker recall",         title:"Broker Summary" },
+    { role:"Brand credibility",     title:"Rubicon Company LinkedIn Post" },
+    { role:"Market angle",          title:"Thought Leadership Article Preview" },
+    { role:"Relationship support",  title:"Loan-officer-style LinkedIn / Staff Amplification" },
+    { role:"Recurring touchpoint",  title:"Newsletter Feature" },
+    { role:"Website proof",         title:"Website Refresh Snippet" },
+    { role:"Social adaptation",     title:"Short-Form Social Adaptation / Facebook + Instagram Module" },
+    { role:"Video narrative",       title:"Short Video Script Concept" },
+  ];
+  const controlArtifacts = [
+    { eb:"Planned control artifact", title:"Approval Checklist",                        sub:"Human review before use." },
+    { eb:"Planned control artifact", title:"Audience / Platform / Owner / Value Matrix", sub:"Who owns what, where, and why." },
+    { eb:"Planned control artifact", title:"Visual / Image Direction Matrix",           sub:"Asset direction before production." },
+  ];
+  return `
+    <div class="screen-head">
+      ${contextLine(7)}
+      <h1 class="headline">One verified source. Distinct <em>audience value</em>.</h1>
+      <p class="short">The system adapts one source into targeted assets for different business audiences — without changing the verified facts.</p>
+    </div>
+
+    <div data-reveal-step="0" data-hide-step="3">
+      <div class="tile-row-label"><span class="trl-text">Demo content units</span><span class="trl-rule"></span></div>
+      <div class="tile-grid" style="margin-bottom:9px">
+        ${demoUnits.map(t => `
+          <div class="tile">
+            <div class="t-num"><span>${esc(t.role)}</span></div>
+            <div class="t-title">${esc(t.title)}</div>
+          </div>
+        `).join("")}
+      </div>
+      <div class="tile-row-label control"><span class="trl-text">Planned control / planning artifacts</span><span class="trl-rule"></span></div>
+      <div class="artifact-row">
+        ${controlArtifacts.map(t => `
+          <div class="artifact-chip">
+            <div class="a-eyebrow">${esc(t.eb)}</div>
+            <div class="a-title">${esc(t.title)}</div>
+            <div class="a-sub">${esc(t.sub)}</div>
+          </div>
+        `).join("")}
+      </div>
+    </div>
+
+    <div class="grid cols-4 tile-expanded-row" style="gap:8px; align-items:stretch; margin-top:8px">
+      <div data-reveal-step="1" style="--rd:0ms">
+        <div class="tile-expanded">
+          <div class="e-tag">Brand</div>
+          <h4 class="e-title">Company LinkedIn</h4>
+          <p class="e-text quote">“Value-add retail acquisitions often require a clear plan before conventional financing is available.”</p>
+          <p class="e-text quote">“Rubicon funded a $5.7M acquisition / bridge loan for a 150,000 SF retail strip center on 14.16 acres in Vallejo.”</p>
+          <div class="micro">Brand credibility draft</div>
+        </div>
+      </div>
+      <div data-reveal-step="1" style="--rd:120ms">
+        <div class="tile-expanded">
+          <div class="e-tag">Loan officer</div>
+          <h4 class="e-title">Loan-Officer-Style Post</h4>
+          <p class="e-text quote">“A high-vacancy retail acquisition is not the kind of deal a broker should present casually.”</p>
+          <p class="e-text quote">“The lender needs to understand the property as it is today, not only what the borrower plans to do with it.”</p>
+          <div class="micro">Relationship-led draft</div>
+        </div>
+      </div>
+      <div data-reveal-step="2" style="--rd:0ms">
+        <div class="tile-expanded">
+          <div class="e-tag">Staff</div>
+          <h4 class="e-title">Staff Amplification</h4>
+          <p class="e-text quote">“High-vacancy acquisitions need careful presentation.”</p>
+          <p class="e-text quote">“Brokers should be ready to explain property condition, borrower plan, use of proceeds, and exit path.”</p>
+          <div class="micro">Optional · editable</div>
+        </div>
+      </div>
+      <div data-reveal-step="2" style="--rd:120ms">
+        <div class="tile-expanded">
+          <div class="e-tag">Broker</div>
+          <h4 class="e-title">Broker-Facing Summary</h4>
+          <p class="e-text quote">“What brokers should notice: this is not only a retail acquisition.”</p>
+          <p class="e-text quote">“It is a high-vacancy value-add acquisition where current property condition and borrower plan both need to be clear.”</p>
+          <div class="micro">BD support asset</div>
+        </div>
+      </div>
+    </div>
+
+    <div data-reveal-step="3" style="margin-top:6px">
+      <div class="endstate">
+        <div class="es-head">
+          <h3 class="es-title">Review <span class="arr">→</span> Approve <span class="arr">→</span> Schedule</h3>
+          <div class="es-sub">Single end-state for the five live outputs. No publishing happens here.</div>
+        </div>
+        <div class="es-body">
+          <div class="es-col">
+            <div class="es-mono">Approval checklist</div>
+            <h5>Check before external use</h5>
+            <p>Fact accuracy · confidentiality · brand tone · staff voice · value-add framing · vacancy language · leasing / pad-sale claims · investor-facing wording · overclaims.</p>
+          </div>
+          <div class="es-col">
+            <div class="es-mono">Week 1 sequence</div>
+            <div class="es-cal-grid">
+              <div class="cal-row"><b>MON</b><span>Company post</span></div>
+              <div class="cal-row"><b>THU</b><span>Broker-facing summary</span></div>
+              <div class="cal-row"><b>TUE</b><span>Loan-officer-style post</span></div>
+              <div class="cal-row later"><b>LATER</b><span>Newsletter / website / video concept</span></div>
+              <div class="cal-row"><b>WED</b><span>Staff amplification</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    ${footNote("", "")}
+  `;
+}
+
+function screen8() {
+  return `
+    <div class="screen-head">
+      ${contextLine(8)}
+      <h1 class="headline">Content supports <em>professional relationships</em>.</h1>
+      <p class="short">Broker recall improves when real scenarios are clear, useful, and safe to share.</p>
+      <p class="body-text">The broker version turns the working example into a practical scenario. Staff comments make amplification optional, short, and controlled.</p>
+    </div>
+    <div class="rel-flow">
+      <div class="rel-col">
+        <div class="rel-col-head">Broker takeaway</div>
+        <div data-reveal-step="0">
+          <div class="card">
+            <h4 style="font-family: var(--serif); font-size:17px; font-weight:500; margin:0 0 6px">This is not only a retail acquisition</h4>
+            <p style="font-size:13px; color: var(--ink-2); line-height:1.55; margin:0">It is a high-vacancy value-add acquisition where the current property condition and the borrower's plan both need to be clear before the conversation moves to financing terms.</p>
+            <div class="micro">BD support</div>
+          </div>
+        </div>
+        <div data-reveal-step="2" style="--rd:60ms">
+          <div class="card" style="background: var(--card-muted); border-style: dashed">
+            <h4 style="font-family: var(--serif); font-size:14.5px; font-weight:500; margin:0 0 4px">Relationship support</h4>
+            <p style="font-size:12px; color: var(--ink-mute); line-height:1.5; margin:0">Content supports relationship memory across brokers and adjacent CRE professionals. It does not replace the relationship.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rel-col">
+        <div class="rel-col-head">Staff comments · variants</div>
+        <div data-reveal-step="1" style="--rd:80ms">
+          <div class="card">
+            <div class="rel-col-head" style="margin:0 0 6px">Variant 01</div>
+            <p style="font-style: italic; font-size:13px; margin:0; color: var(--ink-2); line-height:1.55; border-left: 2px solid var(--sand); padding-left:10px">“High-vacancy acquisitions need careful presentation.”</p>
+          </div>
+        </div>
+        <div data-reveal-step="1" style="--rd:180ms">
+          <div class="card">
+            <div class="rel-col-head" style="margin:0 0 6px">Variant 02</div>
+            <p style="font-style: italic; font-size:13px; margin:0; color: var(--ink-2); line-height:1.55; border-left: 2px solid var(--sand); padding-left:10px">“Brokers should be ready to explain current property condition, borrower plan, use of proceeds, and exit path.”</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rel-col">
+        <div class="rel-col-head">Workflow attributes</div>
+        <div data-reveal-step="2" style="--rd:120ms">
+          <div class="mini-card"><h4 class="m-title">Optional repost</h4><p class="m-text">Staff amplification is optional and editable. Nothing is required.</p></div>
+        </div>
+        <div data-reveal-step="2" style="--rd:220ms">
+          <div class="mini-card amber"><h4 class="m-title">Marketing-owned</h4><p class="m-text">Marketing controls timing, sequencing, and which staff are asked to participate.</p></div>
+        </div>
+        <div data-reveal-step="2" style="--rd:300ms">
+          <div class="mini-card"><h4 class="m-title">Approval before external use</h4><p class="m-text">Every variant remains internal-demo material until Rubicon checks tone and confidentiality.</p></div>
+        </div>
+      </div>
+    </div>
+    ${footNote("", "")}
+  `;
+}
+
+function screen9() {
+  const gates = [
+    { step:"01", title:"Source-bound brief",    text:"Facts, gaps, and controls are extracted first." },
+    { step:"02", title:"AI-assisted draft",     text:"AI creates reviewable options, not final public content." },
+    { step:"03", title:"Marketing review",      text:"Marketing selects, edits, and controls the workflow." },
+    { step:"04", title:"Leadership boundaries", text:"Leadership defines risk posture and strategic priorities." },
+    { step:"05", title:"Human approval",        text:"Nothing goes external without Rubicon review." },
+    { step:"06", title:"Calendar placement",    text:"Approved content enters a controlled rhythm." },
+  ];
+  return `
+    <div class="screen-head">
+      ${contextLine(9)}
+      <h1 class="headline">Marketing-owned. Human-approved. <em>No automated publishing.</em></h1>
+      <p class="short">Control is part of the workflow.</p>
+    </div>
+    <div class="section-h">Approval-gate pipeline</div>
+    <div class="gate-grid" style="margin-bottom: 14px">
+      ${gates.map((g,i) => `
+        <div class="gate-card" data-reveal-step="0" style="--rd:${i*90}ms">
+          <div class="g-step">Step ${esc(g.step)}</div>
+          <div class="g-title">${esc(g.title)}</div>
+          <div class="g-text">${esc(g.text)}</div>
+        </div>
+      `).join("")}
+    </div>
+    <div class="grid cols-4">
+      <div data-reveal-step="1">
+        <div class="lock-card">
+          <svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.78)" stroke-width="1.6"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          <div class="l-title">No automated publishing</div>
+          <p class="l-text">Drafts cannot publish directly. Human approval is required before external use.</p>
+        </div>
+      </div>
+      <div data-reveal-step="1" style="--rd:100ms"><div class="mini-card red"><h4 class="m-title">Risk controls</h4><p class="m-text">No investor-facing content. No return / yield / safety language. No unsupported success claims. No sensitive internal documents.</p></div></div>
+      <div data-reveal-step="1" style="--rd:200ms"><div class="mini-card amber"><h4 class="m-title">Human review required</h4><p class="m-text">Every draft remains internal-demo material until Rubicon checks facts, tone, confidentiality, and risk-sensitive wording.</p></div></div>
+      <div data-reveal-step="1" style="--rd:300ms"><div class="mini-card navy"><h4 class="m-title">Leadership-governed</h4><p class="m-text">Founders set boundaries, priorities, and risk posture. Marketing operates within them.</p></div></div>
+    </div>
+    ${footNote("", appendixBtn("B","Appendix: Approval checklist"))}
+  `;
+}
+
+function screen10() {
+  return `
+    <div class="screen-head">
+      ${contextLine(10)}
+      <h1 class="headline">Pilot: prove the <em>operating rhythm</em>.</h1>
+      <p class="short">A contained 30-day test using public funded-deal material only.</p>
+    </div>
+    <div class="pilot-grid" style="margin-bottom: 10px">
+      <div data-reveal-step="0">
+        <div class="pilot-card">
+          <div class="ptag">Inputs</div>
+          <div class="ptitle">What goes in</div>
+          <ul class="plist">
+            <li>10–20 public funded-deal pages.</li>
+            <li>Public Rubicon tone references.</li>
+            <li>One marketing reviewer.</li>
+            <li>One leadership sponsor.</li>
+            <li>No internal loan files.</li>
+          </ul>
+        </div>
+      </div>
+      <div data-reveal-step="0" style="--rd:100ms">
+        <div class="pilot-card">
+          <div class="ptag">Outputs</div>
+          <div class="ptitle">What comes out</div>
+          <ul class="plist">
+            <li>10–20 structured briefs.</li>
+            <li>3–5 full content packs.</li>
+            <li>LinkedIn-first plan.</li>
+            <li>Staff examples · broker summaries.</li>
+            <li>Newsletter / website / video concepts with distinct audience value.</li>
+            <li>30-day calendar.</li>
+          </ul>
+        </div>
+      </div>
+      <div data-reveal-step="0" style="--rd:200ms">
+        <div class="pilot-card">
+          <div class="ptag">Controls</div>
+          <div class="ptitle">What is excluded</div>
+          <ul class="plist">
+            <li>Public-source-only.</li>
+            <li>No automated publishing.</li>
+            <li>No investor-facing content.</li>
+            <li>No sensitive internal documents.</li>
+            <li>No unsupported success claims.</li>
+            <li>Human review before external use.</li>
+            <li>Editorial thesis and duplication-control review.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="grid cols-2" style="align-items: stretch; gap: 10px">
+      <div data-reveal-step="0" style="--rd:300ms">
+        <div class="pilot-card">
+          <div class="ptag">Management effort</div>
+          <div class="ptitle">Leadership ask</div>
+          <ul class="plist">
+            <li>Confirm selected public deals.</li>
+            <li>Attend one mid-pilot review.</li>
+            <li>Attend one final review.</li>
+            <li>No systems integration.</li>
+            <li>No internal data access.</li>
+          </ul>
+        </div>
+      </div>
+      <div data-reveal-step="1">
+        <div class="pilot-card decision-card">
+          <div class="ptag">After 30 days</div>
+          <div class="ptitle">Three decision paths</div>
+          <ul class="plist">
+            <li><b>01</b>Stop after proof-of-concept.</li>
+            <li><b>02</b>Continue as a marketing-owned funded-deal workflow.</li>
+            <li><b>03</b>Expand later into event-to-content and thought-leadership workflows.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    ${footNote("", appendixBtn("D","Appendix: Pilot detail"))}
+  `;
+}
+
+const SCREEN_RENDERERS = { 0:screen0, 1:screen1, 2:screen2, 3:screen3, 4:screen4, 5:screen5, 6:screen6, 7:screen7, 8:screen8, 9:screen9, 10:screen10 };
+
+/* ===================================================================
+   APPENDIX RENDERERS
+   =================================================================== */
+const APPENDIX_TABS = [
+  { key:"A", label:"A · Source Proof" },
+  { key:"B", label:"B · Approval Checklist" },
+  { key:"C", label:"C · Market Patterns" },
+  { key:"D", label:"D · Pilot Detail" },
+  { key:"E", label:"E · Q&A" },
+  { key:"F", label:"F · Demo Pack Library" },
+];
+
+function appendixA() {
+  // FD-014 retained only as a hidden internal identifier; audience-visible
+  // wording uses the Vallejo retail strip center example phrasing.
+  return `
+    <div class="app-eyebrow">Section A · Source Proof</div>
+    <h3 class="app-title">Source Proof — Vallejo Retail Strip Center Example</h3>
+    <p class="app-body-text">Official Rubicon public funded-deal page used as the source anchor for this demo.</p>
+
+    <div class="app-eyebrow" style="margin-bottom:8px">Official source screenshot excerpt</div>
+    <div class="proof-frame">
+      <img class="proof-img" src="assets/Rubicon_Vallejo_Source_Proof_Crop.png" alt="Official Rubicon source page excerpt — Vallejo retail strip center funded-deal page showing title, property image, and loan facts.">
+    </div>
+    <div class="proof-caption">Excerpt from the official Rubicon public funded-deal page.</div>
+
+    <div class="app-eyebrow" style="margin:18px 0 8px">Source URL</div>
+    <div class="source-url-row">
+      <span class="url-label">Source URL</span>
+      <a class="url-link" href="https://rubiconmortgagefund.com/5700000-retail-strip-center-acquisition/" target="_blank" rel="noopener noreferrer">https://rubiconmortgagefund.com/5700000-retail-strip-center-acquisition/</a>
+    </div>
+
+    <div style="margin-top:18px">
+      <div class="app-eyebrow">Source-card facts (carried in main flow)</div>
+      <ul class="lite-list" style="margin-top:8px">
+        <li>$5.7M acquisition / bridge loan.</li>
+        <li>150,000 SF retail strip center on 14.16 acres.</li>
+        <li>12-month term.</li>
+        <li>60% LTC.</li>
+        <li>First deed of trust.</li>
+      </ul>
+    </div>
+  `;
+}
+
+function appendixB() {
+  const rows = ["Fact accuracy","Confidentiality","Brand tone","Staff voice","Value-add framing","Vacancy language","Leasing / pad-sale language","Market language","Investor-facing wording","Overclaim detection","Final human approval"];
+  return `
+    <div class="app-eyebrow">Section B · Approval Checklist Summary</div>
+    <h3 class="app-title">Governance backup</h3>
+    <p class="app-body-text">Every draft remains internal-demo material until each row below is reviewed by Rubicon.</p>
+    <div class="checklist">
+      ${rows.map(r => `<div class="row"><div class="chk"></div><div>${esc(r)}</div></div>`).join("")}
+    </div>
+  `;
+}
+
+function appendixC() {
+  const patterns = [
+    {
+      t:"Resource hubs",
+      pattern:"Some lenders keep funded-deal proof searchable after first publication.",
+      why:"Proof remains available for broker and borrower education instead of disappearing after one announcement.",
+      opp:"Existing funded-deal pages can become a more active credibility source, not only an archive.",
+    },
+    {
+      t:"Newsletters",
+      pattern:"Recurring updates can turn completed transactions into repeated credibility touchpoints.",
+      why:"A single deal can support ongoing market visibility when reused carefully and source-bound.",
+      opp:"Rubicon can use selected deal proof to support periodic, review-controlled audience communication.",
+    },
+    {
+      t:"Event reuse",
+      pattern:"Panels, meetings, and market conversations often generate follow-up content.",
+      why:"Business-development activity becomes more memorable when key points are captured and reused.",
+      opp:"Deal Prism can later extend from funded-deal proof into event-to-content workflows.",
+    },
+    {
+      t:"Video concepts",
+      pattern:"Short educational videos can explain lending situations in a compact format.",
+      why:"Complex lending scenarios become easier to remember when translated into simple visual narratives.",
+      opp:"Selected public deal facts can support short-form video scripts without inventing outcomes.",
+    },
+    {
+      t:"Staff amplification",
+      pattern:"Staff participation can extend reach when messages are optional, short, and controlled.",
+      why:"Relationship recall improves when team members have safe, source-bound language to use.",
+      opp:"Marketing can provide optional staff-ready language while preserving human review and no-publish controls.",
+    },
+  ];
+  return `
+    <div class="app-eyebrow">Section C · Market Patterns</div>
+    <h3 class="app-title">Market Content Patterns</h3>
+    <p class="app-body-text">The Deal Prism opportunity is supported by current market patterns: public proof can remain useful after first publication when it is organized into repeatable, targeted, governed content patterns. This section introduces those patterns as category-level context based on open-market research into competitor content activity.</p>
+    <div class="pattern-grid">
+      ${patterns.map((p,i) => `
+        <div class="pattern-card${i === patterns.length - 1 ? " span-2" : ""}">
+          <div class="pc-num">${String(i+1).padStart(2,"0")}</div>
+          <h4 class="pc-name">${esc(p.t)}</h4>
+          <div class="pc-block"><div class="pc-label">Pattern</div><p class="pc-text">${esc(p.pattern)}</p></div>
+          <div class="pc-block"><div class="pc-label">Why it matters</div><p class="pc-text">${esc(p.why)}</p></div>
+          <div class="pc-block opp"><div class="pc-label">Rubicon opportunity</div><p class="pc-text">${esc(p.opp)}</p></div>
+        </div>
+      `).join("")}
+    </div>
+  `;
+}
+
+function appendixD() {
+  return `
+    <div class="app-eyebrow">Section D · Pilot Detail</div>
+    <h3 class="app-title">Operational follow-up</h3>
+    <div class="grid cols-2" style="gap:10px">
+      <div class="mini-card"><h4 class="m-title">Inputs</h4><p class="m-text">10–20 public funded-deal pages · Public Rubicon tone references · One marketing reviewer · One leadership sponsor · No internal loan files.</p></div>
+      <div class="mini-card"><h4 class="m-title">Outputs</h4><p class="m-text">10–20 structured briefs · 3–5 full content packs · LinkedIn-first plan · Staff examples · Broker summaries · Newsletter / website / video concepts with distinct audience value · 30-day calendar.</p></div>
+      <div class="mini-card red"><h4 class="m-title">Controls</h4><p class="m-text">Public-source-only · No automated publishing · No investor-facing content · No sensitive internal documents · No unsupported success claims · Editorial thesis and duplication-control review · Human review before external use.</p></div>
+      <div class="mini-card"><h4 class="m-title">Management effort</h4><p class="m-text">Confirm selected public deals · One mid-pilot review · One final review · No systems integration · No internal data access.</p></div>
+    </div>
+    <div style="margin-top:12px"><div class="mini-card navy"><h4 class="m-title">Decision paths</h4><p class="m-text"><b>01</b> Stop after proof-of-concept. &nbsp; <b>02</b> Continue as marketing-owned funded-deal workflow. &nbsp; <b>03</b> Expand later into event-to-content and thought-leadership.</p></div></div>
+  `;
+}
+
+function appendixE() {
+  const cards = [
+    { q:"Is this just AI marketing?",       a:"No. It starts with approved public deal facts and creates reviewable business assets. AI supports structure, variants, and checklists." },
+    { q:"Will this create compliance risk?",a:"The MVP excludes investor-facing content, automated publishing, sensitive internal files, and unsupported success claims." },
+    { q:"Does this replace marketing?",     a:"No. Marketing owns the workflow. AI supports structure, variants, and checklists." },
+    { q:"Do competitors already do this?",  a:"Some appear more systematic. Rubicon's advantage is its own funded-deal proof and relationships." },
+    { q:"Are we late?",                     a:"No. Rubicon already has the raw material. The pilot turns it into rhythm." },
+    { q:"Is this worth the effort?",        a:"The pilot is public-source-only, low-integration, and review-based." },
+  ];
+  return `
+    <div class="app-eyebrow">Section E · Q&A Objection Cards</div>
+    <h3 class="app-title">Short cards for live questions</h3>
+    ${cards.map(c => `<div class="qna-card"><h4 class="q">${esc(c.q)}</h4><p class="a">${esc(c.a)}</p></div>`).join("")}
+  `;
+}
+
+function appendixF() {
+  // v8A-22: Appendix F content-unit colour logic updated. Active/openable
+  // content units now use the muted warm/clay accent (role chip + left accent
+  // border) instead of navy. A finished Short Video media unit is added
+  // immediately after the Short Video Script Concept; it carries a restrained
+  // very-light-blue accent and opens a simple local/offline video player in a
+  // new tab. The inactive planned control / planning artifacts move to a quiet
+  // light-grey governance scheme (no hover, no pointer, no click) and their
+  // repeated "planned" wording is simplified to a single compact PLANNED label
+  // plus a grey PLANNED pill beside the "Control / planning artifacts" title.
+  // All nine existing PDF cards and their relative paths are preserved exactly.
+  const sections = [
+    {
+      title: "Demo content units",
+      kind: "completed",
+      chip: "Opens in a new tab",
+      cards: [
+        { t:"Visual Carousel / Deal Cards", role:"Visual proof", type:"Audience-facing visual unit", p:"Converts deal proof into a multi-card visual credibility asset.", href:"pdfs/Deal_Prism_Carousel_White_Unified_1.pdf" },
+        { t:"Broker Summary", role:"Broker recall", type:"Broker / BD support unit", p:"Turns the deal into a practical broker-facing scenario.", href:"pdfs/Deal_Prism_Broker_Summary_Vallejo_White_Unified_1.pdf" },
+        { t:"Rubicon Company LinkedIn Post", role:"Brand credibility", type:"Company channel unit", p:"Frames the deal as a source-bound brand credibility post.", href:"pdfs/Deal_Prism_Company_LinkedIn_Post_Vallejo_White_Unified_5.pdf" },
+        { t:"Thought Leadership Article Preview", role:"Market angle", type:"Market-facing article unit", p:"Uses the deal as a broader commercial-real-estate lending angle.", href:"pdfs/Deal_Prism_Thought_Leadership_Article_Preview_Vallejo_White_Unified_2.pdf" },
+        { t:"Loan-officer-style LinkedIn / Staff Amplification", role:"Relationship support", type:"Relationship / staff amplification unit", p:"Supports relationship-led posting and optional staff comments.", href:"pdfs/Deal_Prism_Staff_Amplification_Vallejo_White_Unified_2.pdf" },
+        { t:"Newsletter Feature", role:"Recurring touchpoint", type:"Recurring credibility unit", p:"Converts the source proof into a newsletter-ready feature.", href:"pdfs/Deal_Prism_Newsletter_Feature_Vallejo_v4.pdf" },
+        { t:"Website Refresh Snippet", role:"Website proof", type:"Website content unit", p:"Creates a source-bound website refresh element.", href:"pdfs/Deal_Prism_Website_Refresh_Snippet_Vallejo_mockup4_v3.pdf" },
+        { t:"Short-Form Social Adaptation / Facebook + Instagram Module", role:"Social adaptation", type:"Social adaptation unit", p:"Adapts the same source into platform-specific short-form social content.", href:"pdfs/Deal_Prism_Short_Form_Social_Adaptation_Vallejo_3.pdf" },
+        { t:"Short Video Script Concept", role:"Video narrative", type:"Video concept unit", p:"Turns the deal into a short-form video outline.", href:"pdfs/Deal_Prism_Short_Video_Script_Concept_Vallejo_2.pdf" },
+        { t:"Short Video", role:"Video asset", kind:"video", type:"Finished short-form video unit", p:"Turns the verified source into a concise visual narrative for controlled presentation or audience use.", href:"Deal Prism Short Video.html" },
+      ],
+    },
+    {
+      title: "Control / planning artifacts",
+      kind: "control",
+      chip: "PLANNED",
+      cards: [
+        { t:"Approval Checklist", role:"Planned", type:"Governance / review artifact", p:"Checks facts, tone, risk, and approval readiness before external use." },
+        { t:"Audience / Platform / Owner / Value Matrix", role:"Planned", type:"Workflow planning artifact", p:"Defines audience, platform, owner, and value for each asset." },
+        { t:"Visual / Image Direction Matrix", role:"Planned", type:"Asset planning artifact", p:"Defines visual direction before production without implying unsupported outcomes." },
+      ],
+    },
+  ];
+
+  return `
+    <div class="app-eyebrow">Section F · Demo Pack Library</div>
+    <h3 class="app-title">Demo Pack Library</h3>
+    <p class="app-body-text">Reference library for the Vallejo retail strip center Deal Prism demo. The main flow shows the operating logic; this appendix opens the supporting content examples.</p>
+
+    ${sections.map(sec => `
+      <section class="appf-section">
+        <div class="appf-sec-head">
+          <span class="appf-sec-title">${esc(sec.title)}</span>
+          <span class="appf-chip ${sec.kind}">${esc(sec.chip)}</span>
+        </div>
+        <div class="appf-grid">
+          ${sec.cards.map(c => {
+            const ck = c.kind || sec.kind;
+            const open = c.href ? "a" : "div";
+            const attrs = c.href
+              ? ` class="appf-card ${ck} is-active" href="${esc(c.href)}" target="_blank" rel="noopener noreferrer"`
+              : ` class="appf-card ${ck}"`;
+            return `
+            <${open}${attrs}>
+              <div class="appf-card-top">
+                <h4 class="appf-card-title">${esc(c.t)}</h4>
+                <span class="appf-status ${ck}">${esc(c.role)}</span>
+              </div>
+              <div class="appf-meta"><span class="appf-meta-k">Type</span><span class="appf-meta-v">${esc(c.type)}</span></div>
+              <div class="appf-meta"><span class="appf-meta-k">Purpose</span><span class="appf-meta-v">${esc(c.p)}</span></div>
+            </${open}>`;
+          }).join("")}
+        </div>
+      </section>
+    `).join("")}
+  `;
+}
+
+const APPENDIX_RENDERERS = { A:appendixA, B:appendixB, C:appendixC, D:appendixD, E:appendixE, F:appendixF };
+
+/* ===================================================================
+   CHROME + RENDER
+   =================================================================== */
+
+/* v8A-18 002B-5 — Closing frame chrome (Opening-to-Operating Bridge).
+   A deliberate final decision frame after Screen 10. It deliberately does
+   NOT use the numbered-screen chrome (no stage-title, no STEP/SCREEN
+   counter). It keeps the existing bottom-rail style + icon-only control
+   concept (Restart · Appendix · Previous · Next) and the appendix overlay
+   (Appendix icon opens Appendix G). The frame carries id="screen-body" so
+   the shared reveal controller animates its entrance calmly on arrival. */
+function closingChrome() {
+  const ICONS = {
+    restart: `<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 2.6v3.1H6.1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.2 5.7a4 4 0 1 1 .9 3.3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/></svg>`,
+    appendix: `<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="2" y="2" width="10" height="10" rx=".5" stroke="currentColor" stroke-width="1.1" fill="none"/><line x1="4.2" y1="5.2" x2="9.8" y2="5.2" stroke="currentColor" stroke-width="1.1"/><line x1="4.2" y1="7.4" x2="9.8" y2="7.4" stroke="currentColor" stroke-width="1.1"/><line x1="4.2" y1="9.6" x2="7.6" y2="9.6" stroke="currentColor" stroke-width="1.1"/></svg>`,
+    prev: `<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 2.5L4.5 7 9 11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`,
+    next: `<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5 2.5L9.5 7 5 11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`,
+  };
+
+  return `
+    <div id="screen-body" class="closing-frame" data-screen-label="Closing · Deal Prism · Final Recommendation">
+      <div class="closing-split">
+        <section class="closing-left">
+          <div class="cl-top" data-reveal-step="0" style="--rd:0ms"><span class="cl-bar" aria-hidden="true"></span>Deal Prism · Final Recommendation</div>
+          <div class="cl-center">
+            <h1 class="cl-wordmark" data-reveal-step="0" style="--rd:90ms">Deal Prism</h1>
+            <p class="cl-slogan" data-reveal-step="0" style="--rd:180ms">Refract the deal. Deliver the value.</p>
+            <div class="cl-rule" data-reveal-step="0" style="--rd:240ms"></div>
+            <p class="cl-mechanism" data-reveal-step="0" style="--rd:300ms">Verified deal facts become <em>targeted assets</em> for distinct business audiences.</p>
+          </div>
+          <div class="cl-support" data-reveal-step="0" style="--rd:360ms">A structured approach to deal-based content reuse.</div>
+        </section>
+
+        <section class="closing-right">
+          <div class="cr-eyebrow" data-reveal-step="0" style="--rd:160ms">Closing frame</div>
+          <div class="cr-flow">
+            <div class="cr-block" data-reveal-step="0" style="--rd:300ms">
+              <p class="cr-label">Conclusion</p>
+              <p class="cr-statement">Rubicon already has the proof. <em>Deal Prism</em> turns it into a controlled operating rhythm.</p>
+            </div>
+            <div class="cr-block cr-ask" data-reveal-step="0" style="--rd:440ms">
+              <p class="cr-label">Recommendation</p>
+              <p class="cr-ask-text">Run a 30-day public-source pilot.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="closing-gov" data-reveal-step="0" style="--rd:560ms">
+        <span class="cg-dot" aria-hidden="true"></span>
+        <span class="cg-text">AI-assisted · Marketing-owned · Leadership-governed · Human-approved</span>
+        <span class="cg-note">No automated publishing.</span>
+      </div>
+    </div>
+
+    <div class="bottombar closing-rail">
+      <div class="closing-railmark">
+        <span class="brand"><span class="mark"></span>Deal Prism</span>
+        <span class="brand-sep" aria-hidden="true"></span>
+        <span class="stage-title">Final Recommendation</span>
+      </div>
+      <div class="rail-spacer"></div>
+      <div class="controls">
+        <button class="icon-btn ghost" id="btn-restart" title="Restart demo (Home)" aria-label="Restart demo">${ICONS.restart}</button>
+        <button class="icon-btn ghost" id="btn-appendix" title="Open appendix" aria-label="Open appendix">${ICONS.appendix}</button>
+        <span class="controls-sep" aria-hidden="true"></span>
+        <button class="icon-btn" id="btn-prev" title="Previous reveal (←)" aria-label="Previous reveal">${ICONS.prev}</button>
+        <button class="icon-btn primary" id="btn-next" title="Next reveal (Space →)" aria-label="Next reveal" disabled>${ICONS.next}</button>
+      </div>
+    </div>
+
+    <div id="appendix-pane" class="appendix-pane ${state.appendix?"open":""}">
+      <div class="appendix-panel">
+        <div class="appendix-head">
+          <div>
+            <div class="app-eyebrow">Appendix · secondary material</div>
+            <h2>Reference</h2>
+          </div>
+          <button class="btn ghost" id="btn-appendix-close" aria-label="Close appendix">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><line x1="2" y1="2" x2="10" y2="10" stroke="currentColor" stroke-width="1.5"></line><line x1="10" y1="2" x2="2" y2="10" stroke="currentColor" stroke-width="1.5"></line></svg>
+            Close
+          </button>
+        </div>
+        <div class="appendix-tabs">
+          ${APPENDIX_TABS.map(t => `<button class="appendix-tab ${state.appendix===t.key?"active":""}" data-app-tab="${t.key}">${esc(t.label)}</button>`).join("")}
+        </div>
+        <div class="appendix-body">
+          ${state.appendix ? (APPENDIX_RENDERERS[state.appendix]||(()=>""))() : ""}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderChrome() {
+  // Screen 0 — Deal Prism opening: render only the intro, no surrounding chrome.
+  if (state.screen === 0) {
+    return `${screen0()}`;
+  }
+
+  // v8A-18 — Closing frame: a deliberate final decision frame, not a
+  // normal numbered demo screen. Rendered by its own chrome builder.
+  if (state.screen === CLOSING_SCREEN) {
+    return closingChrome();
+  }
+
+  // Icon glyphs for the bottom control cluster.
+  const ICONS = {
+    restart: `<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 2.6v3.1H6.1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.2 5.7a4 4 0 1 1 .9 3.3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/></svg>`,
+    appendix: `<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="2" y="2" width="10" height="10" rx=".5" stroke="currentColor" stroke-width="1.1" fill="none"/><line x1="4.2" y1="5.2" x2="9.8" y2="5.2" stroke="currentColor" stroke-width="1.1"/><line x1="4.2" y1="7.4" x2="9.8" y2="7.4" stroke="currentColor" stroke-width="1.1"/><line x1="4.2" y1="9.6" x2="7.6" y2="9.6" stroke="currentColor" stroke-width="1.1"/></svg>`,
+    prev: `<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 2.5L4.5 7 9 11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`,
+    next: `<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5 2.5L9.5 7 5 11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`,
+  };
+
+  return `
+    <div class="topbar">
+      <div class="brand"><span class="mark"></span>Deal Prism</div>
+      ${stageTitleHTML(state.screen)}
+      <div class="spacer"></div>
+      <div class="method-line">A structured approach to deal-based content reuse.</div>
+    </div>
+
+    <div id="screen-body" class="screen">${(SCREEN_RENDERERS[state.screen]||(()=>""))()}</div>
+
+    <div class="bottombar">
+      ${govChips(state.screen)}
+      ${counterHTML(state.screen)}
+      <div class="controls">
+        <button class="icon-btn ghost" id="btn-restart" title="Restart demo (Home)" aria-label="Restart demo">${ICONS.restart}</button>
+        <button class="icon-btn ghost" id="btn-appendix" title="Open appendix" aria-label="Open appendix">${ICONS.appendix}</button>
+        <span class="controls-sep" aria-hidden="true"></span>
+        <button class="icon-btn" id="btn-prev" title="Previous reveal (←)" aria-label="Previous reveal" ${atStart()?"disabled":""}>${ICONS.prev}</button>
+        <button class="icon-btn primary" id="btn-next" title="Next reveal (Space →)" aria-label="Next reveal" ${atEnd()?"disabled":""}>${ICONS.next}</button>
+      </div>
+    </div>
+
+    <div id="appendix-pane" class="appendix-pane ${state.appendix?"open":""}">
+      <div class="appendix-panel">
+        <div class="appendix-head">
+          <div>
+            <div class="app-eyebrow">Appendix · secondary material</div>
+            <h2>Reference</h2>
+          </div>
+          <button class="btn ghost" id="btn-appendix-close" aria-label="Close appendix">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><line x1="2" y1="2" x2="10" y2="10" stroke="currentColor" stroke-width="1.5"></line><line x1="10" y1="2" x2="2" y2="10" stroke="currentColor" stroke-width="1.5"></line></svg>
+            Close
+          </button>
+        </div>
+        <div class="appendix-tabs">
+          ${APPENDIX_TABS.map(t => `<button class="appendix-tab ${state.appendix===t.key?"active":""}" data-app-tab="${t.key}">${esc(t.label)}</button>`).join("")}
+        </div>
+        <div class="appendix-body">
+          ${state.appendix ? (APPENDIX_RENDERERS[state.appendix]||(()=>""))() : ""}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function stepMetaText() {
+  const ms = MAX_STEPS[state.screen] ?? 0;
+  return ms === 0 ? "Single reveal" : `Step ${state.step + 1} of ${ms + 1}`;
+}
+
+function atStart() { return state.screen === 0 && state.step === 0; }
+/* v8A-18: the true end of the experience is now the closing frame, not
+   Screen 10. Next stays enabled on Screen 10's final step so it advances
+   into the closing frame; it is disabled only on the closing frame. */
+function atEnd()   { return state.screen === CLOSING_SCREEN && state.step >= (MAX_STEPS[CLOSING_SCREEN]||0); }
+
+function applyReveal() {
+  // reveal
+  document.querySelectorAll("#screen-body [data-reveal-step]").forEach(el => {
+    const s = parseInt(el.dataset.revealStep, 10);
+    el.classList.toggle("in", s <= state.step);
+  });
+  // hide-after
+  document.querySelectorAll("#screen-body [data-hide-step]").forEach(el => {
+    const s = parseInt(el.dataset.hideStep, 10);
+    el.classList.toggle("hidden", s <= state.step);
+  });
+  // S4 channel "lit" state (after step 0)
+  document.querySelectorAll("#screen-body [data-channel-step]").forEach(el => {
+    const s = parseInt(el.dataset.channelStep, 10);
+    el.classList.toggle("lit", s <= state.step);
+  });
+  // S1 FD-014 highlight (after step 1)
+  document.querySelectorAll("#screen-body [data-highlight-step]").forEach(el => {
+    const s = parseInt(el.dataset.highlightStep, 10);
+    el.classList.toggle("highlight", s <= state.step);
+  });
+  // foot-note step-aware text
+  document.querySelectorAll("#screen-body [data-step-text]").forEach(el => {
+    try {
+      const map = JSON.parse(el.dataset.stepText);
+      const k = String(state.step);
+      if (map[k] != null) el.textContent = map[k];
+    } catch(e) {}
+  });
+}
+
+function render() {
+  const stage = document.getElementById("stage");
+  // Toggle full-bleed mode for the opening page; later screens use the 16:9 stage.
+  document.body.dataset.fullbleed = (state.screen === 0) ? "1" : "0";
+  stage.innerHTML = renderChrome();
+  bindChrome();
+  fitStage();
+  // Let the browser paint the initial (opacity:0) state, then apply .in so transitions play.
+  setTimeout(applyReveal, 30);
+}
+
+/* ===================================================================
+   NAVIGATION
+   =================================================================== */
+function next() {
+  if (state.appendix) return; // do not advance while appendix is open
+  const ms = MAX_STEPS[state.screen] ?? 0;
+  if (state.step < ms) {
+    state.step += 1;
+    applyReveal();
+    updateNavButtons();
+  } else if (state.screen < SCREEN_COUNT) {
+    state.screen += 1;
+    state.step = 0;
+    render();
+  } else if (state.screen === SCREEN_COUNT) {
+    // v8A-18: a normal Next from Screen 10's final step opens the closing frame.
+    state.screen = CLOSING_SCREEN;
+    state.step = 0;
+    render();
+  }
+}
+function prev() {
+  if (state.appendix) return;
+  if (state.step > 0) {
+    state.step -= 1;
+    applyReveal();
+    updateNavButtons();
+  } else if (state.screen > 0) {
+    state.screen -= 1;
+    state.step = MAX_STEPS[state.screen] ?? 0;
+    render();
+  }
+}
+function restart() {
+  state.screen = 0;
+  state.step = 0;
+  state.appendix = null;
+  render();
+}
+function jumpTo(n) {
+  if (!DEBUG) return; // ticks are not free-jump in normal mode
+  state.screen = n;
+  state.step = MAX_STEPS[n] ?? 0;
+  state.appendix = null;
+  render();
+}
+function openAppendix(tab) {
+  state.appendix = tab || "A";
+  render();
+}
+function closeAppendix() {
+  state.appendix = null;
+  render();
+}
+function selectAppendix(tab) {
+  state.appendix = tab;
+  render();
+}
+
+function updateNavButtons() {
+  const btnPrev = document.getElementById("btn-prev");
+  const btnNext = document.getElementById("btn-next");
+  if (btnPrev) btnPrev.disabled = atStart();
+  if (btnNext) btnNext.disabled = atEnd();
+  // Update the bottom-rail STEP counter in place when stepping within
+  // a screen (avoids a full re-render). The SCREEN counter only changes
+  // on screen change, which always re-renders.
+  const cnt = document.getElementById("counter");
+  if (cnt) {
+    const fresh = document.createElement("div");
+    fresh.innerHTML = counterHTML(state.screen).trim();
+    cnt.innerHTML = fresh.firstChild.innerHTML;
+  }
+}
+
+/* ---------- Intro video controller ----------
+   Behavior on Screen 0: autoplay once muted (both layers), hold the final
+   frame, then silently restart after INTRO_REPLAY_DELAY_MS. Background fill
+   mirrors the foreground for atmosphere. Hidden manual restart via numeric
+   keypad "+" (NumpadAdd) when Screen 0 is active.
+
+   v8A-2: the foreground video (id="intro-video") also drives a cinematic
+   left-to-right reveal of the mechanism line. Reveal progress is computed
+   from the foreground video's currentTime and exposed as the CSS variable
+   --mechanism-reveal-progress on #intro-mechanism. The blurred background
+   layer is NOT used as a timing source. */
+const INTRO_REPLAY_DELAY_MS = 10000;
+const MECHANISM_REVEAL_START_S = 1.5;
+const MECHANISM_REVEAL_FALLBACK_DURATION_S = 8.0;  /* used only if metadata unavailable */
+let introReplayTimer = null;
+let mechanismRafId = null;
+
+function clearIntroReplay() {
+  if (introReplayTimer) { clearTimeout(introReplayTimer); introReplayTimer = null; }
+}
+function introLayers() {
+  return [
+    document.getElementById("intro-video"),  // foreground (primary)
+    document.getElementById("intro-bg"),     // background fill
+  ].filter(Boolean);
+}
+
+function prefersReducedMotion() {
+  try { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; }
+  catch (_) { return false; }
+}
+
+/* Reset the mechanism-line reveal to 0 and hold it hidden until the
+   foreground video's currentTime reaches MECHANISM_REVEAL_START_S, then
+   smoothly reveal left-to-right until the video ends. Safe to call any
+   number of times; later calls cancel the previous animation loop. */
+function resetIntroMechanismReveal() {
+  cancelIntroMechanismReveal();
+  const el = document.getElementById("intro-mechanism");
+  const fg = document.getElementById("intro-video");
+  if (!el) return;
+
+  // Fallback paths: reduced motion, missing video, broken video element.
+  if (prefersReducedMotion() || !fg) {
+    el.style.setProperty("--mechanism-reveal-progress", "1");
+    el.removeAttribute("data-reveal");
+    return;
+  }
+
+  el.setAttribute("data-reveal", "animating");
+  el.style.setProperty("--mechanism-reveal-progress", "0");
+
+  const tick = () => {
+    // Bail out if we left Screen 0 or the element vanished.
+    if (state.screen !== 0 || !document.body.contains(el)) {
+      cancelIntroMechanismReveal();
+      return;
+    }
+    const t = (typeof fg.currentTime === "number") ? fg.currentTime : 0;
+    const d = (isFinite(fg.duration) && fg.duration > MECHANISM_REVEAL_START_S + 0.1)
+      ? fg.duration
+      : (MECHANISM_REVEAL_START_S + MECHANISM_REVEAL_FALLBACK_DURATION_S);
+    let p = (t - MECHANISM_REVEAL_START_S) / (d - MECHANISM_REVEAL_START_S);
+    if (!isFinite(p)) p = 1;
+    p = Math.max(0, Math.min(1, p));
+    el.style.setProperty("--mechanism-reveal-progress", p.toFixed(4));
+    if (p >= 1) {
+      // Reveal complete: hold full visibility until the next restart.
+      el.removeAttribute("data-reveal");
+      mechanismRafId = null;
+      return;
+    }
+    mechanismRafId = requestAnimationFrame(tick);
+  };
+  mechanismRafId = requestAnimationFrame(tick);
+}
+
+function cancelIntroMechanismReveal() {
+  if (mechanismRafId != null) {
+    cancelAnimationFrame(mechanismRafId);
+    mechanismRafId = null;
+  }
+}
+
+/* If the foreground video genuinely fails to load, surface the full
+   mechanism line statically so it is never permanently hidden. */
+function handleIntroVideoFailure() {
+  cancelIntroMechanismReveal();
+  const el = document.getElementById("intro-mechanism");
+  if (!el) return;
+  el.removeAttribute("data-reveal");
+  el.style.setProperty("--mechanism-reveal-progress", "1");
+}
+
+function restartIntroVideo() {
+  clearIntroReplay();
+  introLayers().forEach(v => {
+    try { v.currentTime = 0; } catch (_) {}
+    v.muted = true;
+    const p = v.play();
+    if (p && typeof p.catch === "function") p.catch(() => {});
+  });
+  // Every restart — automatic, manual, or programmatic — must also reset
+  // the mechanism-line reveal so it replays in sync with the video.
+  resetIntroMechanismReveal();
+}
+
+/* ---------- Bindings ---------- */
+function bindChrome() {
+  // Screen 0 — intro page bindings.
+  if (state.screen === 0) {
+    const fg = document.getElementById("intro-video");
+    const bg = document.getElementById("intro-bg");
+
+    [fg, bg].filter(Boolean).forEach((v) => {
+      // Hard-mute (defense in depth) and fade in on data.
+      v.muted = true;
+      v.volume = 0;
+      const onReady = () => v.classList.add("ready");
+      if (v.readyState >= 2) onReady();
+      else {
+        v.addEventListener("loadeddata", onReady, { once: true });
+        v.addEventListener("canplay", onReady, { once: true });
+      }
+      const p = v.play();
+      if (p && typeof p.catch === "function") p.catch(() => {});
+    });
+
+    // Foreground drives the cycle. Background mirrors it (pauses when fg ends,
+    // restarts on the same schedule via restartIntroVideo).
+    if (fg) {
+      fg.addEventListener("ended", () => {
+        try { fg.pause(); } catch (_) {}
+        try { bg && bg.pause(); } catch (_) {}
+        clearIntroReplay();
+        introReplayTimer = setTimeout(() => {
+          if (state.screen !== 0) return;
+          restartIntroVideo();
+        }, INTRO_REPLAY_DELAY_MS);
+      });
+      // If the background somehow finishes first, keep it paused on its last
+      // frame; the foreground "ended" handler is the source of truth.
+      if (bg) {
+        bg.addEventListener("ended", () => { try { bg.pause(); } catch (_) {} });
+      }
+
+      // Mechanism-line reveal — timed off the foreground video only.
+      // Wait for metadata so duration is known; if it never arrives or the
+      // video errors, fall back to a fully-visible static line.
+      const startReveal = () => resetIntroMechanismReveal();
+      if (isFinite(fg.duration) && fg.duration > 0) {
+        startReveal();
+      } else {
+        fg.addEventListener("loadedmetadata", startReveal, { once: true });
+        fg.addEventListener("canplay", startReveal, { once: true });
+      }
+      fg.addEventListener("error", handleIntroVideoFailure);
+      fg.addEventListener("stalled", () => {
+        // If we still have no duration after a long stall, surface the line.
+        if (!isFinite(fg.duration) || fg.duration <= 0) handleIntroVideoFailure();
+      });
+    } else {
+      // No foreground video at all — keep the line statically visible.
+      handleIntroVideoFailure();
+    }
+    return;
+  }
+
+  // Leaving Screen 0 — cancel any pending replay and stop the reveal RAF.
+  clearIntroReplay();
+  cancelIntroMechanismReveal();
+
+  document.getElementById("btn-prev")?.addEventListener("click", prev);
+  document.getElementById("btn-next")?.addEventListener("click", next);
+  document.getElementById("btn-restart")?.addEventListener("click", restart);
+  document.getElementById("btn-appendix")?.addEventListener("click", () => openAppendix(state.appendix || appendixForScreen(state.screen)));
+  document.getElementById("btn-appendix-close")?.addEventListener("click", closeAppendix);
+
+  document.querySelectorAll("[data-jump]").forEach(el => {
+    el.addEventListener("click", () => jumpTo(parseInt(el.dataset.jump, 10)));
+  });
+  document.querySelectorAll("[data-app-tab]").forEach(el => {
+    el.addEventListener("click", () => selectAppendix(el.dataset.appTab));
+  });
+  document.querySelectorAll("[data-appendix]").forEach(el => {
+    el.addEventListener("click", () => openAppendix(el.dataset.appendix));
+  });
+  document.getElementById("appendix-pane")?.addEventListener("click", (e) => {
+    if (e.target.id === "appendix-pane") closeAppendix();
+  });
+}
+
+/* ---------- Keyboard ---------- */
+window.addEventListener("keydown", (e) => {
+  // Hidden presenter shortcut — numeric keypad "+" restarts the opening video.
+  if (state.screen === 0 && (e.code === "NumpadAdd" || e.key === "+")) {
+    e.preventDefault();
+    restartIntroVideo();
+    return;
+  }
+  if (e.key === "ArrowRight" || e.key === " " || e.key === "PageDown") { e.preventDefault(); next(); }
+  else if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); prev(); }
+  else if (e.key === "Escape") { if (state.appendix) closeAppendix(); }
+  else if (e.key === "Home") { restart(); }
+});
+
+/* ---------- Stage scaling (v8A-4) ----------
+   Screens 1–10 fill the viewport directly via CSS (no transform).
+   Screen 0 keeps its full-bleed override. We deliberately do NOT
+   apply a scale transform on Screens 1–10 — that was the source of
+   the visible left/right empty side zones in v8A-3. */
+function fitStage() {
+  const stage = document.getElementById("stage");
+  if (!stage) return;
+  // Always clear any prior transform; layout is CSS-driven from v8A-4.
+  stage.style.transform = "";
+}
+window.addEventListener("resize", fitStage);
+
+/* ---------- Boot ---------- */
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Deal Prism — Short Video</title>
+<style>
+  :root {
+    --bg: #16181D;
+    --panel: #1E2128;
+    --ink: #F2EFE8;
+    --ink-mute: #A7A294;
+    --sand: #C7A85F;
+    --rule: rgba(255,255,255,.08);
+    --serif: Georgia, "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body {
+    background: radial-gradient(120% 90% at 50% 0%, #20242C 0%, var(--bg) 70%);
+    color: var(--ink);
+    font-family: var(--sans);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  header {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .mark { width: 7px; height: 7px; border-radius: 1px; background: var(--sand); }
+  .brand { font-family: var(--serif); font-size: 16px; letter-spacing: -.01em; }
+  .brand .sep { color: var(--ink-mute); margin: 0 8px; }
+  .brand .ctx { color: var(--ink-mute); }
+  .eyebrow {
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  main {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 24px;
+    min-height: 0;
+  }
+  .stage {
+    width: 100%;
+    max-width: 1080px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  video {
+    width: 100%;
+    max-height: 78vh;
+    background: #000;
+    border-radius: 8px;
+    border: 1px solid var(--rule);
+    box-shadow: 0 30px 80px -40px rgba(0,0,0,.8);
+    display: block;
+  }
+  .caption {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+    color: var(--ink-mute);
+    font-size: 13px;
+  }
+  .caption .title { font-family: var(--serif); font-size: 17px; color: var(--ink); }
+  .caption .role {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #8FA9C6;
+    border: 1px solid rgba(143,169,198,.4);
+    border-radius: 100px;
+    padding: 2px 8px;
+  }
+  .note { font-size: 12px; color: var(--ink-mute); }
+</style>
+</head>
+<body>
+  <header>
+    <span class="mark" aria-hidden="true"></span>
+    <span class="brand">Deal Prism<span class="sep">·</span><span class="ctx">Short Video</span></span>
+    <span class="eyebrow">Finished media unit</span>
+  </header>
+  <main>
+    <div class="stage">
+      <video controls autoplay playsinline preload="metadata">
+        <source src="assets/Deal_Prism_Short_Video_Vallejo_Final.mp4" type="video/mp4" />
+        Your browser does not support the video tag. The file is available at
+        assets/Deal_Prism_Short_Video_Vallejo_Final.mp4
+      </video>
+      <div class="caption">
+        <span class="title">Short Video</span>
+        <span class="role">Video asset</span>
+        <span class="note">A concise visual narrative built from the verified source.</span>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
